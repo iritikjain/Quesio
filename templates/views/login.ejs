@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Quesio | Login</title>
+    <link
+      rel="stylesheet"
+      href="/assets/vendors/fontawesome-free/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="icon" type="image/x-icon" href="/assets/images/Q.ico" />
+  </head>
+
+  <body
+    style="
+      background-image: linear-gradient(45deg, #c395e5, #6206a8);
+      padding-left: 225px;
+      padding-top: 60px;
+      padding-bottom: 50px;
+    "
+  >
+    <main class="page-auth">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-10">
+            <section class="auth-wrapper">
+              <div class="row w-100 mx-0">
+                <div
+                  class="col-lg-5 mx-auto border border-light rounded-lg p-4 shadow-lg bg-white"
+                >
+                  <div class="row w-300">
+                    <div class="col-md-2 mb-2">
+                      <button
+                        type="button"
+                        class="btn btn-primary btn-rounded btn-icon"
+                        style="padding: 25%"
+                      >
+                        <a href="/">
+                          <img
+                            src="/assets/images/home.png"
+                            style="height: 24px ;"
+                            alt="App store"
+                        /></a>
+                      </button>
+                    </div>
+                    <div class="col-md-9">
+                      <h2 class="auth-section-title mx-3">Log In Now !</h2>
+                    </div>
+                  </div>
+                  <p class="auth-section-subtitle text-center">
+                    Sign In Your Account To Contribute.
+                  </p>
+                  <form action="/login" method="POST">
+                    <div class="form-group">
+                      <label for="email">Email ID : <sup>*</sup></label>
+                      <input
+                        type="email"
+                        class="form-control"
+                        id="email"
+                        name="email"
+                        placeholder="support@quesio.com"
+                        required
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="password">Password : <sup>*</sup></label>
+                      <input
+                        type="password"
+                        class="form-control"
+                        id="password"
+                        name="password"
+                        placeholder="Password"
+                      />
+                    </div>
+                    <div
+                      class="form-actions-wrapper d-flex flex-wrap align-items-center justify-content-between m-0 p-0"
+                    >
+                      <a href="/login/forgetpassword" class="forgot-password-link"
+                        >Forgot Password ?</a
+                      >
+                    </div>
+                    <div class="text-center mt-4">
+                      <%if(loginmessage){ %> 
+                      <div>
+                        <label for="invalidcredentials"   style="color: red;"><%=loginmessage %> </label>
+                      </div>
+                      <% } %> 
+                      <button
+                        class="btn btn-primary btn-auth-submit"
+                        type="submit"
+                      >
+                        Login
+                      </button>
+                    </div>
+                  </form>
+
+                  <div class="text-center">
+                    <p class="mb-0">
+                      New To Quesio ?
+                      <a href="/register" class="text-dark font-weight-bold"
+                        >Sign Up</a
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="/assets/vendors/jquery/jquery.min.js"></script>
+    <script src="/assets/vendors/popper.js/popper.min.js"></script>
+    <script src="/assets/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+  </body>
+</html>

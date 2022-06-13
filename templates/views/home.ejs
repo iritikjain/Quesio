@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merienda+One&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="/assets/images/Q.ico">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <title>Quesio | Home</title>
+  <link rel="stylesheet" href="/assets/vendors/fontawesome-free/css/all.min.css" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+
+<body>
+  <div class="quesio-header landing-header">
+
+
+    <div>
+      <nav class="navbar navbar-expand-lg navbar-light quesio-navbar">
+        <a class="navbar-brand" href="/">
+          Quesio
+        </a>
+        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+          aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link font-nav" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link font-nav" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link font-nav" href="#features">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link font-nav" href="#faq">FAQs</a>
+            </li>
+          </ul>
+          <% if(signup){ %> 
+          <ul class="navbar-nav mt-2 mt-lg-0">
+            <% if(usertype==='expert'){ %> 
+            <li class="nav-item mr-2 mb-3 mb-lg-0">
+              <a class="btn btn-secondary btn-sm" href="/moderator">Dashboard</a>
+            </li>
+            <% }else{ %> 
+              <li class="nav-item mr-2 mb-3 mb-lg-0">
+                <a class="btn btn-secondary btn-sm" href="/<%=usertype %> ">Dashboard</a>
+              </li>
+              <% } %> 
+            <li class="nav-item">
+              <a class="btn btn-secondary btn-sm" href="/logout">Logout</a>
+            </li>
+          </ul>
+          <% }else{ %>
+            <ul class="navbar-nav mt-2 mt-lg-0">
+              <li class="nav-item mr-2 mb-3 mb-lg-0">
+                <a class="btn btn-secondary btn-sm" href="/register">Sign Up</a>
+              </li>
+              <li class="nav-item">
+                <a class="btn btn-secondary btn-sm" href="/login">Login</a>
+              </li>
+            </ul>
+            <% } %>  
+
+        </div>
+      </nav>
+    </div>
+    <div class="container">
+
+      <div class="header-content">
+        <div class="row">
+          <div class="col-md-4 pt-5">
+            <h1>Crowd Sourced Question Paper Generator</h1>
+            <p class="text-dark mt-4">
+              Hassle Free Way Of Generating Question Papers & Question Banks. <br> <br>
+              Forget The Traditional Method Of Generating Question Papers & Question Banks, Instead
+              Use <b>Quesio</b> For Generating Question Papers From A Large Question Bank Prepared By Various Professors
+              !
+            </p>
+            <a href="/login"><button
+                class="btn btn-primary mb-4 animate__animated animate__lightSpeedInLeft mt-4">Contribute Now
+                !</button></a>
+          </div>
+          <div class="col-md-8">
+            <img src="/assets/images/index_image.png" alt="app" width="600px" class="img-fluid child-img" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <section class="pt-5 m-4">
+      <div class="container" id="features">
+        <h2 class="features-center mb-3">Features</h2>
+        <div class="row">
+          <div class="col-lg-4 mb-4 ">
+            <div class="card pricing-card border-warning wow animate__animated animate__zoomIn shadow-lg">
+              <div class="card-body">
+                <h3 class="mb-4 text-warning">Large Question Banks</h3>
+                <p class="mb-4">
+                  Contribute To The Large Question Banks Which Will Be Used For The Generation Of Question Papers.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 mb-4 ">
+            <div class="card pricing-card border-primary wow animate__animated animate__zoomIn shadow-lg">
+              <div class="card-body">
+                <h3 class="mb-4 text-primary">Question Paper Generation</h3>
+                <p class="mb-4">
+                  Generate Subject & Chapter Wise Question Papers For The Online MCQ End Semester Exams.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 mb-4 ">
+            <div class="card pricing-card border-success wow animate__animated animate__zoomIn shadow-lg">
+              <div class="card-body">
+                <h3 class="mb-4 text-success">Validate Questions</h3>
+                <p class="mb-4">
+                  Experts / Moderators Can Validate The Questions & Their Answers Provided By The Professors.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="my-4" id="about">
+      <div class="container">
+        <h2 class="features-center pb-2">About</h2>
+        <div class="card pricing-card border-primary wow animate__animated animate__zoomIn h-100 shadow-lg">
+          <p class="text-muted">
+            Quesio provides the feature for generating question paper from a large question paper. Quesio is a
+            simplified
+            and easy-to-use solution to create question papers quickly. Our platform swiftly eradicates tedious task of
+            a
+            manual question paper creation.Quesio is an excellent solution for schools/colleges and other educational
+            institutes.
+          </p>
+          <p class="text-muted">
+            Quesio is an excellent solution for schools/colleges and other educational
+            institutes.
+          </p>
+          <p class="text-muted">
+            The question paper is generated according to the paper pattern and difficulty level provided by the exam
+            chancellor (admin). The system provides option of adding the complexity of question-level and currently
+            supports multiple-choice questions (MCQs).
+          </p>
+          <p class="text-muted mb-5">
+            The system generates subject wise as well as module wise question paper for a particular end semester exam.
+            The platform can export question paper to pdf format after question paper is generated from the large
+            question
+            bank crowd-sourced by the various stakeholders.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="m-4 pb-5 pt-4" id="faq">
+      <div class="container text-center">
+        <h2>FAQs</h2>
+        <p class="section-subtitle">Frequently Asked Questions</p>
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="card mb-3 landing-faq-card">
+              <div class="card-header bg-white" id="faqOneTitle">
+                <a href="#faqOneCollapse" class="d-flex align-items-center" data-toggle="collapse">
+                  <h6 class="mb-0">What Is Quesio ?</h6>
+                  <i class="far fa-plus-square ml-auto"></i>
+                </a>
+              </div>
+              <div id="faqOneCollapse" class="collapse" aria-labelledby="faqOneTitle">
+                <div class="card-body">
+                  <p class="mb-0 text-gray">
+                    Quesio Is An WebApp Used To Generate Question Papers From A Large Question Bank Prepared By Various
+                    Professors.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="card mb-3 landing-faq-card">
+              <div class="card-header bg-white" id="faqTwoTitle">
+                <a href="#faqTwoCollapse" class="d-flex align-items-center" data-toggle="collapse">
+                  <h6 class="mb-0">Why Should I Use Quesio ?</h6>
+                  <i class="far fa-plus-square ml-auto"></i>
+                </a>
+              </div>
+              <div id="faqTwoCollapse" class="collapse" aria-labelledby="faqTwoTitle">
+                <div class="card-body">
+                  <p class="mb-0 text-gray">
+                    Quesio is a simplified and easy-to-use solution to create question papers quickly. Our platform
+                    swiftly eradicates tedious task of a manual question paper creation.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="card mb-3 landing-faq-card">
+              <div class="card-header bg-white" id="faqThreeTitle">
+                <a href="#faqThreeCollapse" class="d-flex align-items-center" data-toggle="collapse">
+                  <h6 class="mb-0">How To Use Quesio ?</h6>
+                  <i class="far fa-plus-square ml-auto"></i>
+                </a>
+              </div>
+              <div id="faqThreeCollapse" class="collapse" aria-labelledby="faqThreeTitle">
+                <div class="card-body">
+                  <p class="mb-0 text-gray">
+                    Firstly, Register Yourself On Our Platform Then Start Submitting Your Questions And Their Respective
+                    Answers. Your Responses Will Be Further Validated By The Experts / Moderators & The Question Bank
+                    Will Be Prepared. Finally, Admin Will Generate The Question Paper.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="card mb-3 landing-faq-card">
+              <div class="card-header bg-white" id="faqFourTitle">
+                <a href="#faqFourCollapse" class="d-flex align-items-center" data-toggle="collapse">
+                  <h6 class="mb-0">Who Can See The Questions Submitted By Me ?</h6>
+                  <i class="far fa-plus-square ml-auto"></i>
+                </a>
+              </div>
+              <div id="faqFourCollapse" class="collapse" aria-labelledby="faqFourTitle">
+                <div class="card-body">
+                  <p class="mb-0 text-gray">
+                    Your Questions Will Be Visible To The Experts / Moderators Who Will Validate The Questions & Their
+                    Answers. Also Admin Will Be Able To See The Validated Questions For Generating The Question Paper.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="card mb-3 landing-faq-card">
+              <div class="card-header bg-white" id="faqFiveTitle">
+                <a href="#faqFiveCollapse" class="d-flex align-items-center" data-toggle="collapse">
+                  <h6 class="mb-0">Can I Modify / Delete My Submissions ?</h6>
+                  <i class="far fa-plus-square ml-auto"></i>
+                </a>
+              </div>
+              <div id="faqFiveCollapse" class="collapse" aria-labelledby="faqFiveTitle">
+                <div class="card-body">
+                  <p class="mb-0 text-gray">
+                    You Can Modify Or Delete The Questions & Their Respective Answers Provided By You Only Until They
+                    Are Not Validated By The Experts / Moderators.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="card mb-3 landing-faq-card">
+              <div class="card-header bg-white" id="faqSixTitle">
+                <a href="#faqSixCollapse" class="d-flex align-items-center" data-toggle="collapse">
+                  <h6 class="mb-0">Being A User, What All Rights I Have ?</h6>
+                  <i class="far fa-plus-square ml-auto"></i>
+                </a>
+              </div>
+              <div id="faqSixCollapse" class="collapse" aria-labelledby="faqSixTitle">
+                <div class="card-body">
+                  <p class="mb-0 text-gray">
+                    As A Faculty Member You Can Submit Questions & Answers. Modify / Delete Your Submissions Until
+                    Validated.<br>
+                    As An Expert / Moderator You Can Validate The Questions Submitted By The Various Professors. You Can
+                    Also Submit Questions & Answers. Modify / Delete Your Submissions Until Validated. <br>
+                    As An Admin You Can Manage The Entire University Like Adding / Deleting Various Colleges Affiliated
+                    To The University. Managing Their Branches, Syllabus, Paper Pattern And Many More.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="quesio-footer text-white">
+      <div class="container">
+        <div class="row footer-content">
+        </div>
+        <div class="row footer-widget-area">
+          <div class="col-md-4 mt-3 mt-md-0 text-center">
+            <nav>
+              <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a href="#!" class="nav-link" style="font-size: larger;">Quesio</a>
+                </li>
+                <li class="nav-item">
+                  <a href="/login" class="nav-link">Upload Questions</a>
+                </li>
+                <li class="nav-item">
+                  <a href="/login" class="nav-link">Generate Question Paper</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <div class="col-md-4 mt-3 mt-md-0 text-center">
+            <nav>
+              <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a href="#!" class="nav-link" style="font-size: larger;">About</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#about" class="nav-link">About Us</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#features" class="nav-link">Features</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <div class="col-md-4 mt-3 mt-md-0 text-center">
+            <nav>
+              <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a href="#!" class="nav-link" style="font-size: larger;">Contact Us</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#!" class="nav-link">support@quesio.com</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#!" class="nav-link">+91 99576 34756</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#!" class="nav-link">India</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <div class="mt-4 text-center">
+          <p>Copyright &copy; Quesio. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+    <script src="/assets/vendors/jquery/jquery.min.js"></script>
+    <script src="/assets/vendors/popper.js/popper.min.js"></script>
+    <script src="/assets/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+      integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"
+      integrity="sha512-Eak/29OTpb36LLo2r47IpVzPBLXnAMPAVypbSZiZ4Qkf8p/7S/XRG5xp7OKWPPYfJT6metI+IORkR5G8F900+g=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+      var wow = new WOW(
+        {
+          boxClass: 'wow',
+          animateClass: 'animated',
+          offset: 0,
+          mobile: true,
+          live: true,
+          callback: function (box) {
+          },
+          scrollContainer: null
+        }
+      );
+      wow.init();
+    </script>
+</body>
+
+</html>

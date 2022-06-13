@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Quesio | Moderator Questions</title>
+
+  <link rel="stylesheet" href="/dashboard/vendors/typicons.font/font/typicons.css">
+  <link rel="stylesheet" href="/dashboard/vendors/css/vendor.bundle.base.css">
+
+  <link rel="stylesheet" href="/dashboard/css/vertical-layout-light/style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merienda+One&display=swap" rel="stylesheet">
+
+  <link rel="icon" type="image/x-icon" href="assets/images/Q.ico">
+
+</head>
+
+<body>
+  <div class="container-scroller">
+
+
+    <div class="container-fluid page-body-wrapper" style="padding-top:0; min-height: 100vh;">
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+          <li class="nav-item" id="brandq">
+            <a class="navbar-brand" href="/" style="display: inline-block;
+            padding-top: 0.3rem;
+            margin-right: 1rem;
+            font-size: 2.5rem;
+            line-height: inherit;
+            white-space: nowrap;
+            font-weight: bold;
+            font-family: Merienda One, cursive;
+            color: white;
+            padding-left: 1rem;">
+              Quesio
+            </a>
+          </li>
+          <li class="nav-item">
+            <div class="d-flex sidebar-profile" style="padding: 1rem 1.125rem;">
+              <div class="sidebar-profile-name">
+                <p class="sidebar-designation">Welcome</p>
+                <p class="sidebar-name">MODERATOR</p>
+              </div>
+              <button class="navbar-toggler navbar-toggler align-self-center d-lg-flex transition-btn" type="button"
+                style="color: aliceblue;margin-top: 0.85rem;" data-toggle="minimize" id="hbtn"
+                style="transform: translateX(8.5rem);">
+                <span class="typcn typcn-th-menu"></span>
+              </button>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/">
+              <i class="typcn typcn-home menu-icon"></i>
+              <span class="menu-title">Home
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/moderator">
+              <i class="typcn typcn-device-desktop menu-icon"></i>
+              <span class="menu-title">Dashboard
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/moderator/moderatorquestions"  style="background:#414147;">
+              <i class="typcn typcn-code-outline menu-icon"></i>
+              <span class="menu-title" >Questions To Validate
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/moderator/moderatorquestionsvalidated" onmouseenter="colorwhite(this.children[1])"
+            onmouseleave="removewhite(this.children[1])">
+              <i class="typcn typcn-code menu-icon text-muted"></i>
+              <span class="menu-title" id="ianchor1">All Validated Questions
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/moderator/profile" onmouseenter="colorwhite(this.children[1])"
+            onmouseleave="removewhite(this.children[1])">
+              <i class="typcn typcn-user-outline menu-icon"></i>
+              <span class="menu-title">Profile
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/logout">
+              <i class="typcn typcn-power menu-icon"></i>
+              <span class="menu-title">Logout
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="main-panel" id="maindiv">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-sm-12" style="display: flex;justify-content: space-between;padding-bottom: 1rem;">
+              <h1 class="mb-0 font-weight-bold" style="padding-top:0.75rem;display: flex;">Questions To Validate</h1>
+
+            </div>
+          </div>
+          <div class="row"> 
+            <div class="col-lg-12 grid-margin stretch-card mb-0 pb-0">
+              <div class="card">
+                <div class="card-body">
+
+                  <div class="table-responsive">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th style="font-weight: bold;">
+                            Sr No.
+                          </th>
+                          <th style="font-weight: bold;">
+                            Question
+                          </th>
+                          <th style="font-weight: bold;">
+                            Branch
+                          </th>
+                          <th style="font-weight: bold;">
+                            Subject
+                          </th>
+                          <th style="font-weight: bold;">
+                            Status
+                          </th>
+
+
+                          <th style="font-weight: bold;">
+                            Delete
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <% pendingquestions.forEach((question,index)=>{ %>
+                          <tr>
+                            <td>
+                              <h5>
+                                <%=index+1 %>
+                              </h5>
+                            </td>
+                            <td>
+                              <select class="form-control form-control-lg" id="exampleFormControlSelect1"
+                                style="width: 100%">
+                                <option>
+                                  <h5>
+                                    <%=question.question %>
+                                  </h5>
+                                </option>
+                                <% question.options.forEach((option,opt)=>{ %>
+                                  <option>
+                                    <h5>
+                                      <%=opt+1%>) <%=option %>
+                                    </h5>
+                                  </option>
+                                  <% }) %>
+                              </select>
+                            </td>
+                            <td>
+                              <h5>
+                                <%=question.branch %>
+                              </h5>
+                            </td>
+
+                            <td>
+                              <h5>
+                                <%=question.subject %>
+                              </h5>
+                            </td>
+                            </td>
+                            <td>
+                              <button type="button" class="btn btn-primary btn-sm"><a style="color:inherit; text-decoration: none;"
+                                  href="http://127.0.0.1:9000/questions/validate<%=question.id %> ">Pending</a></button>
+                            </td>
+
+                            <td>
+                              <button type="button" class="btn btn-primary btn-sm btn-danger "><a style="color:inherit; text-decoration: none;"
+                                  href="http://127.0.0.1:9000/questions/delete<%=question.id %> ">Delete</a></button>
+                            </td>
+                          </tr>
+
+                          <% }) %>
+                      </tbody>
+                    </table>
+                  </div>
+                  <% if(pendingquestions.length==0){ %> 
+                  <div class="col-lg-12 grid-margin stretch-card mb-0">
+                    <label for="noValidateQuestions" class="col-md-12 text-center p-4 pb-1 mb-0">
+                      <pre class="bg-white mb-0 pb-0 font-weight-medium">*  Currently There are no Questions to Validate  *</pre>
+                    </label>
+                  </div>
+                  <% } %> 
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="/dashboard/vendors/js/vendor.bundle.base.js"></script>
+
+  <script src="/dashboard/js/off-canvas.js"></script>
+  <script src="/dashboard/js/hoverable-collapse.js"></script>
+  <script src="/dashboard/js/template.js"></script>
+  <script src="/dashboard/js/settings.js"></script>
+  <script src="/dashboard/js/todolist.js"></script>
+  <script>
+    let counter = 0;
+    let hamburgerbtn = document.getElementById("hbtn")
+    let brandq = document.getElementById("brandq")
+    let ianchor1 = document.getElementById("ianchor1")
+    let maindiv=document.getElementById('maindiv');
+    maindiv.style.margin = "0px 0px 0px 255px";
+    
+    window.onload = () => {
+      hamburgerbtn.style.transform = "translateX(5.5rem) translateY(-5.4rem)"
+      ianchor1.style.color = "#7e7e7e"
+    }
+    hamburgerbtn.addEventListener('click', () => {
+
+      if (counter == 0) {
+        hamburgerbtn.style.transform = "translateX(-0.5rem) translateY(-5.4rem)"
+        brandq.style.transform = "translateX(-10rem)"
+        counter = 1;
+        maindiv.style.margin = "0px 0px 0px 70px";
+      }
+      else {
+        hamburgerbtn.style.transform = "translateX(5.5rem) translateY(-5.4rem)"
+        brandq.style.transform = "translateX(0rem)"
+        counter = 0;
+        maindiv.style.margin = "0px 0px 0px 255px";
+      }
+    })
+
+    function colorwhite(obj){
+      obj.style.color = "white";
+    }
+
+    function removewhite(obj){
+      obj.style.color = "#7e7e7e";
+    }
+  </script>
+
+</body>
+
+</html>

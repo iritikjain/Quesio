@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>Quesio | Profile</title>
+
+  <link rel="stylesheet" href="/dashboard/vendors/typicons.font/font/typicons.css" />
+  <link rel="stylesheet" href="/dashboard/vendors/css/vendor.bundle.base.css" />
+
+  <link rel="stylesheet" href="/dashboard/css/vertical-layout-light/style.css" />
+
+  <link rel="shortcut icon" href="/dashboard/images/favicon.png" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+  <link rel="icon" type="image/x-icon" href="assets/images/Q.ico">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merienda+One&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css"
+    href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/colors.min.css" />
+
+  <link rel="stylesheet" type="text/css"
+    href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/fonts/simple-line-icons/style.min.css" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <div class="container-scroller">
+
+    <div class="container-fluid page-body-wrapper" style="padding-top:0; min-height: 100vh;">
+
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+          <li class="nav-item" id="brandq">
+            <a class="navbar-brand" href="/" style="display: inline-block;
+            padding-top: 0.3rem;
+            margin-right: 1rem;
+            font-size: 2.5rem;
+            line-height: inherit;
+            white-space: nowrap;
+            font-weight: bold;
+            font-family: Merienda One, cursive;
+            color: white;
+            padding-left: 1rem;">
+              Quesio
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <div class="d-flex sidebar-profile" style="padding: 1rem 1.125rem;">
+              <div class="sidebar-profile-name">
+                <p class="sidebar-designation">Welcome</p>
+                <p class="sidebar-name">
+                  <%=profile.name %>
+                </p>
+              </div>
+              <button class="navbar-toggler navbar-toggler align-self-center d-lg-flex transition-btn" type="button"
+                style="color: aliceblue;margin-top: 0.85rem;" data-toggle="minimize" id="hbtn"
+                style="transform: translateX(8.5rem);">
+                <span class="typcn typcn-th-menu"></span>
+              </button>
+            </div>
+
+
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/">
+              <i class="typcn typcn-home menu-icon"></i>
+              <span class="menu-title">Home
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/<%=usertype %> ">
+              <i class="typcn typcn-device-desktop menu-icon"></i>
+              <span class="menu-title">Dashboard
+            </a>
+          </li>
+          <% if(usertype=='moderator' ){ %>
+            <li class="nav-item">
+              <a class="nav-link" href="/moderator/moderatorquestions ">
+                <i class="typcn typcn-device-desktop menu-icon"></i>
+                <span class="menu-title">Questions to Validate
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/moderator/moderatorquestionsvalidated">
+                <i class="typcn typcn-device-desktop menu-icon"></i>
+                <span class="menu-title">All Validated Questions
+              </a>
+            </li>
+            <% } %>
+              <li class="nav-item">
+                <a class="nav-link" href="/<%=usertype %>/profile">
+                  <i class="typcn typcn-user-outline menu-icon"></i>
+                  <span class="menu-title">Profile
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/logout">
+                  <i class="typcn typcn-device-desktop menu-icon"></i>
+                  <span class="menu-title">Logout
+                </a>
+              </li>
+
+        </ul>
+      </nav>
+
+      <div class="main-panel" id="maindiv">
+        <div class="content-wrapper flex">
+          <div class="row mb-4 ml-2">
+            <div class="col-md-11 p-2">
+              <h3 class="m-3 font-weight-bolder"
+                style="font-size:2rem; border-bottom: 2px solid #6206a8;padding-bottom:1rem;">Profile Settings</h3>
+            </div>
+          </div>
+          <div class="mt-0 m-3">
+            <form action="/<%=usertype %>/profile" method="post">
+              <div class="pl-5 ml-5">
+                <div class="row">
+                  <div class="col-md-6 mb-3 p-1">
+                    <label for="inputlg">Name</label>
+                    <input type="text" class="form-control bg-white" value="<%=profile.name  %> " id="name" name="name"
+                      placeholder="Enter Your Full Name *" Disabled>
+                  </div>
+                  <div class="col-md-6 mb-3 p-1">
+                    <label for="email" class="ml-2">Email-ID</label>
+                    <input type="email" class="form-control bg-white" value="<%=profile.email_id  %> " id="email"
+                      name="email" placeholder="Enter Your Email Address" Disabled>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-md-6 mb-3 p-1">
+                    <label for="username" class="ml-2">Username</label>
+                    <input type="text" class="form-control bg-white" value="<%=profile.username  %>" id="username"
+                      name="username" placeholder="Enter Your Username" Disabled>
+                  </div>
+                  <div class="form-group col-md-6 mb-3 p-1">
+                    <label for="password" class="ml-2">Password</label>
+                    <input type="password" class="form-control bg-white" id="password" value="<%=profile.password  %>"
+                      name="password" placeholder="Enter Your Password" Disabled>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-md-6 mb-3 p-1">
+                    <label for="university" class="ml-2">University/Board Name</label>
+                    <input type="text" class="form-control bg-white" value="<%=profile.university  %>" id="university"
+                      name="university" placeholder="Enter Your University Or Board Name" Disabled>
+                  </div>
+                  <div class="form-group col-md-6 mb-3 p-1">
+                    <label for="branch" class="ml-2">Branch</label>
+                    <input type="text" class="form-control bg-white" value="<%=profile.branch  %>" id="branch"
+                      name="branch" placeholder="Enter Your Branch" Disabled>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-md-6 mb-3 p-1">
+                    <label for="college" class="ml-2">College Name</label>
+                    <input type="text" class="form-control bg-white" id="college" value="<%=profile.college  %>"
+                      name="college" placeholder="Enter Your College Name" Disabled>
+                  </div>
+                  <div class="form-group col-md-6 mb-3 p-1">
+                    <label for="phone" class="ml-2">Phone Number</label>
+                    <input type="number" class="form-control bg-white" id="phone" value="<%=profile.phone  %>"
+                      name="phone" placeholder="Enter Your Contact Number" Disabled>
+                  </div>
+                </div>
+                <input type="text" id="totalsubandyoe" name="totalsubandyoe" value="<%=profile.subject.length   %> "
+                  style="display: none;">
+
+                
+              
+                <div class="containernew">
+                <div class="row  justify-content-center ">
+                  <div class="col-lg-12  " style="padding-left: 0.2rem;padding-right: 1.5rem; padding-top: 1.5rem;">
+                    <div class="card">
+                      <div class="card-body-new">
+
+                        <div class="table-responsive">
+                          <table class="table table-striped">
+                            <thead>
+                              <tr>
+                                <th style="font-weight: bold; font-size: medium;">
+                                  Sr No.
+                                </th>
+                                <th style="font-weight: bold; font-size: medium;">
+                                  Subject
+                                </th>
+                                <th style="font-weight: bold; font-size: medium;">
+                                  Years of Experience
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <% profile.subject.forEach((data,index)=>{ %> 
+                              <tr>
+                                <td>
+                                  <h5>
+                                   <%=index+1 %> 
+                                  </h5>
+                                </td>
+                                <td>
+                                  <h5>
+                                   <%=data.subject_name %> 
+                                  </h5>
+                                </td>
+                                <td>
+                                  <h5>
+                                   <%=data.yearofexp%> 
+                                  </h5>
+                                </td>
+                                  
+                                </tr>
+                                <% }) %>
+                            </tbody>
+                          </table>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+                <div>
+                  <div class="dashboard-btn">
+                    <button type="button" class="btn" id="editbutton" style="background-color: #6206a8; color: white">
+                      Edit Profile
+                    </button>
+                  </div>
+                  <div class="dashboard-btn offset-5">
+                    <button type="submit" class="btn" id="savebutton"
+                      style="background-color: #6206a8; color: white; display: none;;">
+                      Save Profile
+                    </button>
+                  </div>
+                </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <script src="/dashboard/vendors/js/vendor.bundle.base.js"></script>
+      <script src="/dashboard/js/off-canvas.js"></script>
+      <script src="/dashboard/js/hoverable-collapse.js"></script>
+      <script src="/dashboard/js/template.js"></script>
+      <script src="/dashboard/js/settings.js"></script>
+      <script src="/dashboard/js/todolist.js"></script>
+      <script src="/dashboard/vendors/progressbar.js/progressbar.min.js"></script>
+      <script src="/dashboard/vendors/chart.js/Chart.min.js"></script>
+      <script src="/dashboard/js/dashboard.js"></script>
+      <script>
+        function getsubandyoe() {
+
+          const sublength = `<%=profile.subject.length %> `;
+
+          for (let i = 0; i < sublength; i++) {
+            document.getElementById(`subject${i + 1}`).disabled = false;
+            document.getElementById(`yoe${i + 1}`).disabled = false;
+          }
+        }
+
+        let editbutton = document.getElementById('editbutton');
+        let savebutton = document.getElementById('savebutton');
+        let email = document.getElementById('email');
+        let phone = document.getElementById('phone');
+        let password = document.getElementById('password');
+        let fname = document.getElementById('name');
+        let username = document.getElementById('username');
+        let college = document.getElementById('college');
+        let maindiv=document.getElementById('maindiv');
+    maindiv.style.margin = "0px 0px 0px 255px";
+
+        editbutton.addEventListener('click', () => {
+          email.disabled = false;
+          phone.disabled = false;
+          password.disabled = true;
+          fname.disabled = false;
+          username.disabled = false;
+          college.disabled = false;
+          savebutton.style.display = 'block';
+          editbutton.style.display = 'none';
+          getsubandyoe()
+        });
+
+        let counter = 0;
+        let hamburgerbtn = document.getElementById("hbtn");
+        let subjects = document.getElementById('subjects');
+        window.onload = () => {
+          hamburgerbtn.style.transform = "translateX(7.4rem) translateY(-6.2rem)"
+        }
+        hamburgerbtn.addEventListener('click', () => {
+
+          if (counter == 0) {
+            hamburgerbtn.style.transform = "translateX(-0.5rem) translateY(-5.4rem)";
+            brandq.style.transform = "translateX(-10rem)"
+
+            counter = 1;
+            maindiv.style.margin = "0px 0px 0px 70px";
+          }
+          else {
+            hamburgerbtn.style.transform = "translateX(7.4rem) translateY(-6.2rem)"
+            brandq.style.transform = "translateX(0rem)"
+            counter = 0;
+            maindiv.style.margin = "0px 0px 0px 255px";
+          }
+        })
+
+
+
+      </script>
+
+</body>
+
+</html>

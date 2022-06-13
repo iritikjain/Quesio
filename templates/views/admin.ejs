@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>Quesio | Admin</title>
+
+  <link rel="stylesheet" href="/dashboard/vendors/typicons.font/font/typicons.css" />
+  <link rel="stylesheet" href="/dashboard/vendors/css/vendor.bundle.base.css" />
+
+  <link rel="stylesheet" href="/dashboard/css/vertical-layout-light/style.css" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+  <link rel="icon" type="image/x-icon" href="/assets/images/Q.ico">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merienda+One&display=swap" rel="stylesheet">
+
+
+  <link rel="stylesheet" type="text/css"
+    href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/colors.min.css" />
+
+  <link rel="stylesheet" type="text/css"
+    href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/fonts/simple-line-icons/style.min.css" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <div class="container-scroller">
+
+    <div class="container-fluid page-body-wrapper" style="padding-top:0; min-height: 100vh;">
+
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+          <li class="nav-item" id="brandq">
+            <a class="navbar-brand" href="/" style="display: inline-block;
+            padding-top: 0.3rem;
+            margin-right: 1rem;
+            font-size: 2.5rem;
+            line-height: inherit;
+            white-space: nowrap;
+            font-weight: bold;
+            font-family: Merienda One, cursive;
+            color: white;
+            padding-left: 1rem;">
+              Quesio
+            </a>
+          </li>
+          <li class="nav-item">
+            <div class="d-flex sidebar-profile" style="padding: 1rem 1.125rem;">
+              <div class="sidebar-profile-name">
+                <p class="sidebar-designation">Welcome</p>
+                <p class="sidebar-name">ADMIN</p>
+              </div>
+              <button class="navbar-toggler navbar-toggler align-self-center d-lg-flex transition-btn" type="button"
+                style="color: aliceblue;margin-top: 0.85rem;" data-toggle="minimize" id="hbtn"
+                style="transform: translateX(8.5rem);">
+                <span class="typcn typcn-th-menu"></span>
+              </button>
+            </div>
+
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/">
+              <i class="typcn typcn-home menu-icon"></i>
+              <span class="menu-title">Home</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admina" style="background:#414147;">
+              <i class="typcn typcn-device-desktop menu-icon"></i>
+              <span class="menu-title">Dashboard
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/college" onmouseenter="colorwhite(this.children[1])"
+              onmouseleave="removewhite(this.children[1])">
+              <i class="typcn typcn-briefcase menu-icon text-muted"></i>
+              <span class="menu-title" style="color:#7e7e7e;">College Details</span>
+
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/faculty" onmouseenter="colorwhite(this.children[1])"
+              onmouseleave="removewhite(this.children[1])">
+              <i class="typcn typcn-user-outline menu-icon text-muted"></i>
+              <span class="menu-title" style="color:#7e7e7e;">Faculty Details</span>
+
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/moderator" onmouseenter="colorwhite(this.children[1])"
+              onmouseleave="removewhite(this.children[1])">
+              <i class="typcn typcn-user menu-icon text-muted"></i>
+              <span class="menu-title" style="color:#7e7e7e;">Moderators Details</span>
+
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/questions" onmouseenter="colorwhite(this.children[1])"
+              onmouseleave="removewhite(this.children[1])">
+              <i class="typcn typcn-database menu-icon text-muted"></i>
+              <span class="menu-title" style="color:#7e7e7e;">Validated Questions</span>
+
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/branchs" onmouseenter="colorwhite(this.children[1])"
+              onmouseleave="removewhite(this.children[1])">
+              <i class="typcn typcn-document-delete menu-icon text-muted"></i>
+              <span class="menu-title" style="color:#7e7e7e;">Branches</span>
+
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/subjects" onmouseenter="colorwhite(this.children[1])"
+              onmouseleave="removewhite(this.children[1])">
+              <i class="typcn typcn-document menu-icon text-muted"></i>
+              <span class="menu-title" style="color:#7e7e7e;">Subjects</span>
+
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/qbgenerate">
+              <i class="typcn typcn-arrow-down-thick menu-icon"></i>
+              <span class="menu-title">Paper Generation</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/">
+              <i class="typcn typcn-lock-closed menu-icon"></i>
+              <span class="menu-title">Logout</span>
+
+            </a>
+          </li>
+
+        </ul>
+      </nav>
+
+
+      <div class="main-panel" id="maindiv">
+        <div class="content-wrapper flex" style="padding-top: 3rem;">
+          <div class="row">
+            <div class="col-sm-12">
+              <h2 class="mb-0 font-weight-bold" style="padding-bottom: 1rem;border-bottom: 2px solid #6206a8;">ADMIN
+                DASHBOARD</h2>
+
+            </div>
+          </div>
+          <div class="row margin-card-top1" style="padding-top: 0.5rem;">
+            <div class="col-xl-4 col-sm-6 col-12">
+              <div class="card shadow-lg ">
+                <div class="card-content">
+                  <div class="card-body">
+                    <div class="media d-flex">
+                      <div class="align-self-center">
+                        <i class="fa fa-question font-large-2 float-left"></i>
+                      </div>
+                      <div class="media-body text-right">
+                        <h3>
+                          <%=approved_question%>
+                        </h3>
+                        <span>Approved Questions</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-4 col-sm-6 col-12">
+              <div class="card shadow-lg ">
+                <div class="card-content">
+                  <div class="card-body">
+                    <div class="media d-flex">
+                      <div class="align-self-center">
+                        <i class="fa-regular fa-circle-question font-large-2 float-left"></i>
+                      </div>
+                      <div class="media-body text-right">
+                        <h3>
+                          <%=pending_question%>
+                        </h3>
+                        <span>Pending Questions</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-4 col-sm-6 col-12">
+              <div class="card shadow-lg ">
+                <div class="card-content">
+                  <div class="card-body">
+                    <div class="media d-flex">
+                      <div class="align-self-center">
+                        <i class="fa-solid fa-circle-question font-large-2 float-left"></i>
+                      </div>
+                      <div class="media-body text-right">
+                        <h3>
+                          <%=total_ques%>
+                        </h3>
+                        <span>Total Questions</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row margin-card-top">
+            <div class="col-xl-4 col-sm-6 col-12">
+              <div class="card shadow-lg ">
+                <div class="card-content">
+                  <div class="card-body">
+                    <div class="media d-flex">
+                      <div class="align-self-center">
+                        <i class="fa fa-user font-large-2 float-left"></i>
+                      </div>
+                      <div class="media-body text-right">
+                        <h3>
+                          <%=total_faculty%>
+                        </h3>
+                        <span>Our Faculties</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-4 col-sm-6 col-12">
+              <div class="card shadow-lg ">
+                <div class="card-content">
+                  <div class="card-body">
+                    <div class="media d-flex">
+                      <div class="align-self-center">
+                        <i class="fa-solid fa-user-graduate font-large-2 float-left"></i>
+                      </div>
+                      <div class="media-body text-right">
+                        <h3>
+                          <%=total_moderator%>
+                        </h3>
+                        <span>Our Moderators</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-4 col-sm-6 col-12">
+              <div class="card shadow-lg ">
+                <div class="card-content">
+                  <div class="card-body">
+                    <div class="media d-flex">
+                      <div class="align-self-center">
+                        <i class="fa-solid fa-network-wired font-large-2 float-left"></i>
+                      </div>
+                      <div class="media-body text-right">
+                        <h3>
+                          <%=totalbranch%>
+                        </h3>
+                        <span>No. of Branches</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row margin-card-top">
+            <div class="col-xl-4 col-sm-6 col-12">
+              <div class="card shadow-lg ">
+                <div class="card-content">
+                  <div class="card-body">
+                    <div class="media d-flex">
+                      <div class="align-self-center">
+                        <i class="fa fa-book font-large-2 float-left"></i>
+                      </div>
+                      <div class="media-body text-right">
+                        <h3>
+                          <%=total_subject%>
+                        </h3>
+                        <span>No. of Subjects</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-4 col-sm-6 col-12">
+              <div class="card shadow-lg ">
+                <div class="card-content">
+                  <div class="card-body">
+                    <div class="media d-flex">
+                      <div class="align-self-center">
+                        <i class="fa-solid fa-building-columns font-large-2 float-left"></i>
+                      </div>
+                      <div class="media-body text-right">
+                        <h3>
+                          <%=total_college%>
+                        </h3>
+                        <span>No. of Colleges</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-4 col-sm-6 col-12">
+              <div class="card shadow-lg ">
+                <div class="card-content">
+                  <div class="card-body">
+                    <div class="media d-flex">
+                      <div class="align-self-center">
+                        <i class="fa fa-database font-large-2 float-left"></i>
+                      </div>
+                      <div class="media-body text-right">
+                        <h3>
+                          <%=totalchapter%>
+                        </h3>
+                        <span>No. of Chapters</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="dashboard-btn">
+              <a href="/qbgenerate">
+                <button type="button" class="btn" style="background-color: #6206a8; color: white">
+                  Generate Question Paper
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="/dashboard/vendors/js/vendor.bundle.base.js"></script>
+
+  <script src="/dashboard/js/off-canvas.js"></script>
+  <script src="/dashboard/js/hoverable-collapse.js"></script>
+  <script src="/dashboard/js/template.js"></script>
+  <script src="/dashboard/js/settings.js"></script>
+  <script src="/dashboard/js/todolist.js"></script>
+
+  <script src="/dashboard/vendors/progressbar.js/progressbar.min.js"></script>
+  <script src="/dashboard/vendors/chart.js/Chart.min.js"></script>
+
+  <script src="/dashboard/js/dashboard.js"></script>
+  <script>
+    let counter = 0;
+    let hamburgerbtn = document.getElementById("hbtn")
+    let brandq = document.getElementById("brandq")
+    let maindiv=document.getElementById('maindiv');
+    maindiv.style.margin = "0px 0px 0px 255px";
+
+
+    function colorwhite(obj){
+      obj.style.color = "white";
+    }
+
+    function removewhite(obj){
+      obj.style.color = "#7e7e7e";
+    }
+
+
+
+    window.onload = () => {
+      hamburgerbtn.style.transform = "translateX(8.5rem) translateY(-5.4rem)"
+    }
+    hamburgerbtn.addEventListener('click', () => {
+
+      if (counter == 0) {
+        hamburgerbtn.style.transform = "translateX(-0.5rem) translateY(-5.4rem)"
+        brandq.style.transform = "translateX(-10rem)"
+        counter = 1;
+        maindiv.style.margin = "0px 0px 0px 70px";
+      }
+      else {
+        hamburgerbtn.style.transform = "translateX(8.5rem) translateY(-5.4rem)"
+        brandq.style.transform = "translateX(0rem)"
+        counter = 0;
+        maindiv.style.margin = "0px 0px 0px 255px";
+      }
+    })
+  </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Quesio | Validated Questions</title>
+
+  <link rel="stylesheet" href="/dashboard/vendors/typicons.font/font/typicons.css">
+  <link rel="stylesheet" href="/dashboard/vendors/css/vendor.bundle.base.css">
+
+  <link rel="stylesheet" href="/dashboard/css/vertical-layout-light/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merienda+One&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="/assets/images/Q.ico">
+</head>
+
+<body>
+  <div class="container-scroller">
+    <div class="row">
+
+    <div class="container-fluid page-body-wrapper" style="padding-top:0; min-height: 100vh;">
+
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+          <li class="nav-item" id="brandq">
+            <a class="navbar-brand" href="/" style="display: inline-block;
+              padding-top: 0.3rem;
+              margin-right: 1rem;
+              font-size: 2.5rem;
+              line-height: inherit;
+              white-space: nowrap;
+              font-weight: bold;
+              font-family: Merienda One, cursive;
+              color: white;
+              padding-left: 1rem;">
+              Quesio
+            </a>
+          </li>
+          <li class="nav-item">
+            <div class="d-flex sidebar-profile" style="padding: 1rem 1.125rem;">
+              <div class="sidebar-profile-name">
+                <p class="sidebar-designation">Welcome</p>
+                <p class="sidebar-name">ADMIN</p>
+              </div>
+              <button class="navbar-toggler navbar-toggler align-self-center d-lg-flex transition-btn" type="button"
+                style="color: aliceblue;margin-top: 0.85rem;" data-toggle="minimize" id="hbtn"
+                style="transform: translateX(8.5rem);">
+                <span class="typcn typcn-th-menu"></span>
+              </button>
+            </div>
+
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/">
+              <i class="typcn typcn-home menu-icon"></i>
+              <span class="menu-title">Home</span>
+
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin">
+              <i class="typcn typcn-device-desktop menu-icon"></i>
+              <span class="menu-title">Dashboard
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/college">
+              <i class="typcn typcn-briefcase menu-icon"></i>
+              <span class="menu-title">College Details</span>
+
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/faculty">
+              <i class="typcn typcn-user-outline menu-icon"></i>
+              <span class="menu-title">Faculty Details</span>
+
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/moderator">
+              <i class="typcn typcn-user menu-icon"></i>
+              <span class="menu-title">Moderators Details</span>
+
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/questions">
+              <i class="typcn typcn-database menu-icon"></i>
+              <span class="menu-title">Validated Questions</span>
+
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/branchs">
+              <i class="typcn typcn-document-delete menu-icon"></i>
+              <span class="menu-title">Branches</span>
+
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/subjects">
+              <i class="typcn typcn-document menu-icon"></i>
+              <span class="menu-title">Subjects</span>
+
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/qbgenerate">
+              <i class="typcn typcn-arrow-down-thick menu-icon"></i>
+              <span class="menu-title">Paper Generation</span>
+            </a>
+        </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/">
+              <i class="typcn typcn-lock-closed menu-icon"></i>
+              <span class="menu-title">Logout</span>
+              
+            </a>
+          </li>
+
+        </ul>
+      </nav>
+
+      <div class="main-panel" id="maindiv">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-sm-12" style="display: flex;justify-content: space-between;padding-bottom: 1rem;">
+              <h1 class="mb-0 font-weight-bold" style="padding-top:0.75rem;display: flex;">Validated Questions</h1>
+
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+
+                  <div class="table-responsive">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th style="font-weight: bold;">
+                            Sr No.
+                          </th>
+                          <th style="font-weight: bold;">
+                            Question
+                          </th>
+                          <th style="font-weight: bold;">
+                            Branch
+                          </th>
+                          <th style="font-weight: bold;">
+                            Subject
+                          </th>
+
+
+                          <th style="font-weight: bold;">
+                            Delete
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <% questiondata.forEach(function(data,index){ %>
+                          <tr>
+                            <td>
+                              <h5><%=index+1 %> </h5>
+                            </td>
+                            <td>
+                              <select class="form-control form-control-lg" id="exampleFormControlSelect1">
+                                <option>
+                                  <h5>
+                                    <%=data.question %>
+                                  </h5>
+                                </option>
+                                <% data.options.forEach(function(opt){ %>
+                                  <option style="background-color : aquamarine;">
+                                    <h5> * <%=opt %>
+                                    </h5>
+                                  </option>
+
+                                  <% }) %>
+                              </select>
+                            </td>
+                            <td>
+                              <h5>
+                                <%=data.branch %>
+                              </h5>
+                            </td>
+
+                            <td>
+                              <h5>
+                                <%=data.subject %>
+                              </h5>
+                            </td>
+                            </td>
+
+
+                            <td>
+                              <button type="button" class="btn btn-primary btn-sm btn-danger "><a href="http://127.0.0.1:9000/admin/delete<%=data.id %> ">Delete</a> </button>
+                            </td>
+                          </tr>
+                          <% }) %>
+
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-12 grid-margin stretch-card">
+
+            </div>
+            <div class="col-lg-12 grid-margin stretch-card">
+
+            </div>
+            <div class="col-lg-12 stretch-card">
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+  <script src="/dashboard/vendors/js/vendor.bundle.base.js"></script>
+
+  <script src="/dashboard/js/off-canvas.js"></script>
+  <script src="/dashboard/js/hoverable-collapse.js"></script>
+  <script src="/dashboard/js/template.js"></script>
+  <script src="/dashboard/js/settings.js"></script>
+  <script src="/dashboard/js/todolist.js"></script>
+  <script>
+    let counter =0;
+    let hamburgerbtn = document.getElementById("hbtn")
+    let brandq = document.getElementById("brandq")
+    let maindiv=document.getElementById('maindiv');
+    maindiv.style.margin = "0px 0px 0px 255px";
+
+    window.onload = () => {
+      hamburgerbtn.style.transform = "translateX(8.5rem) translateY(-5.4rem)"
+      }
+    hamburgerbtn.addEventListener('click',() => {
+      
+      if(counter == 0){
+        hamburgerbtn.style.transform = "translateX(-0.5rem) translateY(-5.4rem)"
+        brandq.style.transform = "translateX(-10rem)"
+        counter =1;
+        maindiv.style.margin = "0px 0px 0px 70px";
+      }
+      else{
+        hamburgerbtn.style.transform = "translateX(8.5rem) translateY(-5.4rem)"
+        brandq.style.transform = "translateX(0rem)"
+        counter =0;
+        maindiv.style.margin = "0px 0px 0px 255px";
+      }
+    })
+  </script>
+
+</body>
+
+</html>

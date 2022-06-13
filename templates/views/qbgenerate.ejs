@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>Quesio | Question Paper Generator</title>
+
+  <link rel="stylesheet" href="/dashboard/vendors/typicons.font/font/typicons.css" />
+  <link rel="stylesheet" href="/dashboard/vendors/css/vendor.bundle.base.css" />
+
+  <link rel="stylesheet" href="/dashboard/css/vertical-layout-light/style.css" />
+
+  <link rel="shortcut icon" href="/dashboard/images/favicon.png" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+  <link rel="icon" type="image/x-icon" href="/assets/images/Q.ico">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merienda+One&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css"
+    href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/colors.min.css" />
+
+  <link rel="stylesheet" type="text/css"
+    href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/fonts/simple-line-icons/style.min.css" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <div class="container-scroller">
+
+    <div class="container-fluid page-body-wrapper" style="padding-top:0; min-height: 100vh;">
+
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+          <li class="nav-item" id="brandq">
+            <a class="navbar-brand" href="/" style="display: inline-block;
+              padding-top: 0.3rem;
+              margin-right: 1rem;
+              font-size: 2.5rem;
+              line-height: inherit;
+              white-space: nowrap;
+              font-weight: bold;
+              font-family: Merienda One, cursive;
+              color: white;
+              padding-left: 1rem;">
+              Quesio
+            </a>
+          </li>
+          <li class="nav-item">
+            <div class="d-flex sidebar-profile" style="padding: 1rem 1.125rem;">
+              <div class="sidebar-profile-name">
+                <p class="sidebar-designation">Welcome</p>
+                <p class="sidebar-name">ADMIN</p>
+              </div>
+              <button class="navbar-toggler navbar-toggler align-self-center d-lg-flex transition-btn " 
+              
+              type="button"
+                style="color: aliceblue;margin-top: 0.85rem;" data-toggle="minimize" id="hbtn"
+                style="transform: translateX(8.5rem);">
+                <span class="typcn typcn-th-menu"></span>
+                
+              </button>
+            </div>
+
+
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/">
+              <i class="typcn typcn-home menu-icon"></i>
+              <span class="menu-title">Home</span>
+
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin">
+              <i class="typcn typcn-device-desktop menu-icon"></i>
+              <span class="menu-title">Dashboard
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/college">
+              <i class="typcn typcn-briefcase menu-icon"></i>
+              <span class="menu-title">College Details</span>
+
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/faculty">
+              <i class="typcn typcn-user-outline menu-icon"></i>
+              <span class="menu-title">Faculty Details</span>
+
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/moderator">
+              <i class="typcn typcn-user menu-icon"></i>
+              <span class="menu-title">Moderators Details</span>
+
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/questions">
+              <i class="typcn typcn-database menu-icon"></i>
+              <span class="menu-title">Validated Questions</span>
+
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/branchs">
+              <i class="typcn typcn-document-delete menu-icon"></i>
+              <span class="menu-title">Branches</span>
+
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/subjects">
+              <i class="typcn typcn-document menu-icon"></i>
+              <span class="menu-title">Subjects</span>
+
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/qbgenerate" style="background-color: #414147;">
+              <i class="typcn typcn-arrow-down-thick menu-icon"></i>
+              <span class="menu-title">Paper Generation</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/">
+              <i class="typcn typcn-lock-closed menu-icon"></i>
+              <span class="menu-title">Logout</span>
+
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- partial main page -->
+      <div class="main-panel" id="maindiv">
+        <div class="content-wrapper">
+          <div class="row mb-4 ml-2">
+            <div class="col-md-11 p-2">
+              <h3 class="m-3 font-weight-bolder"
+                style="font-size:2rem; border-bottom: 2px solid #6206a8;padding-bottom:1rem;">Question Paper Generator
+              </h3>
+            </div>
+          </div>
+          <div class="mt-0 m-3">
+            <form action="/qbgenerate" onsubmit="checkForm()" method="POST">
+              <div class="pl-5 ml-5">
+                <div class="row">
+                  <div class="col-md-6 mb-3 p-1">
+                    <label for="inputlg">University/Board</label>
+                    <input type="text" class="form-control bg-white col-md-12 input-group-lg" name="university"
+                      id="inputlg" value="Mumbai University" placeholder="University/Board Name" required disabled>
+                  </div>
+                  <div class="col-md-5 mb-3 p-1">
+                    <label for="validationTooltip02">Branch</label>
+                    <div class="dropdown">
+                      <select onchange="fetchsubjects()" class="custom-select col-10 text-muted pl-4" style="height:3rem; border:none;" id="branch"
+                        name="branch" required>
+                        <option value="">Choose Branch</option>
+                        <% totalbranch.forEach(branch=>{ %>
+                          <option value="<%=branch %>">
+                            <%=branch %>
+                          </option>
+                          <% }) %>
+                      </select>
+                    </div>
+                  </div>
+
+
+                </div>
+                <div class="row" style="display:flex; justify-content:space-between; padding-right: 10.5rem;">
+                  <div class="col-md-6 mb-3  p-1">
+                    <label for="validationTooltip02">Subject</label>
+                    <div class="dropdown" style="padding-right: 0.5rem;">
+                      <select onclick="fetchquestioncount()" class="custom-select col-10 text-muted p-2 pl-4" style="height:3rem; border:none; "
+                        id="subject" name="subject" required>
+                        <option value="">Choose Subject</option>
+                        
+                      </select>   
+                    </div>
+                  </div>
+
+                  <div class="col-md-5 mb-3 p-1" style="max-width: 41%;">
+                    <label for="validationTooltip01">Time Duration</label>
+                    <input style="width: 100%;" type="number" id="duration" class="form-control bg-white" name="timeduration" value="" placeholder="Duration of exam" required>
+                  </div>
+
+
+                </div>
+                <div class="row" style="display:flex; justify-content:space-between; padding-right: 10.5rem;">
+                  <div class="col-md-5 mb-3 p-1">
+                    <label for="validationTooltip01">Marks per question</label>
+                    <input style="width: 100%;" type="number" id="marks" class="form-control bg-white" name="marks" value="" placeholder="Enter Marks" required>
+                  </div>
+
+                  <div class="col-md-5 mb-3 p-1" style="max-width: 41%;">
+                    <label for="validationTooltip01">Date</label>
+                    <input style="width: 100%;" type="date" id="duration" class="form-control bg-white" name="date" value="" placeholder="Enter Date" required>
+                  </div>
+
+
+                </div>
+                <div class="row" id="q1">
+                  <div class="col-md-6 mt-2 p-1">
+                    <label for="validationTooltip01">Total Number of Questions</label>
+                    <input onchange="checkForm()" type="number" id="total" class="form-control bg-white" id="totalquestions"
+                      name="totalquestions" value="" placeholder="Total Number of Questions" required>
+                      <div>
+                        <h5 for="totalnumberofquestion" id="totalnumberofquestion" class="totalquestioncount"> </h5>
+                      </div>
+                  </div>
+                  <div class="col-md-6 p-1" style="margin-top: 0.7rem;">
+                    <label for="validationTooltip01">Number of Easy Questions</label>
+                    <input type="number" onchange="checkForm()" id="easy" class="form-control bg-white" id="easyquestions" name="easyquestions"
+                      value="" placeholder="Number of Easy Questions" required>
+                      <div>
+                        <h5 for="noofeasyquestions" id="noofeasyquestions" class="totalquestioncount">  </h5>
+                      </div>
+                  </div>
+                  
+                </div>
+                <div class="row" id="q2">
+                  <div class="col-md-6 mt-2 p-1">
+                    <label for="validationTooltip01">Number of Moderate Questions</label>
+                    <input type="number" id="moderate" onchange="checkForm()" class="form-control bg-white" id="moderatequestions"
+                      name="moderatequestions" value="" placeholder="Number of Moderate Questions" 
+                       required>
+                      <div>
+                        <h5 for="noofmediumquestions" id="noofmediumquestions" class="totalquestioncount"> </h5>
+                      </div>
+                  </div>
+                  <div class="col-md-6 p-1" style="margin-top: 0.7rem;">
+                    <label for="validationTooltip01">Number of Hard Questions</label>
+                    <input type="number" id="hard" onchange="checkForm()" class="form-control bg-white" id="hardquestions" name="hardquestions"
+                      value="" placeholder="Number of Hard Questions" required>
+                      <div>
+                        <h5 for="noofhardquestions" id="noofhardquestions" class="totalquestioncount"> </h5>
+                      </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <div>
+            <div class="dashboard-btn m-0 pb-5">
+              <label for="errormsg" id="errmsg" style="visibility:hidden;color:red;display:block;">*Total Number of
+                Questions Exceeded!!</label>
+              <button type="submit" class="btn" id="submitbtn" style="background-color: #6206a8; color: white">
+                Generate Question Paper
+              </button>
+            </div>
+          </div>
+          </form>
+        </div>
+      </div>
+      <section></section>
+    </div>
+  </div>
+  <script src="/dashboard/vendors/js/vendor.bundle.base.js"></script>
+  <script src="/dashboard/js/off-canvas.js"></script>
+  <script src="/dashboard/js/hoverable-collapse.js"></script>
+  <script src="/dashboard/js/template.js"></script>
+  <script src="/dashboard/js/settings.js"></script>
+  <script src="/dashboard/js/todolist.js"></script>
+  <script src="/dashboard/vendors/progressbar.js/progressbar.min.js"></script>
+  <script src="/dashboard/vendors/chart.js/Chart.min.js"></script>
+  <script src="/dashboard/js/dashboard.js"></script>
+  <script>
+    let counter = 0;
+    let hamburgerbtn = document.getElementById("hbtn")
+    let brandq = document.getElementById("brandq")
+    let maindiv=document.getElementById('maindiv');
+    maindiv.style.margin = "0px 0px 0px 255px";
+    let maxt = 0;
+    let maxe = 0;
+    let maxm = 0;
+    let maxh = 0;
+
+
+    window.onload = () => {
+      hamburgerbtn.style.transform = "translateX(8.5rem) translateY(-5.5rem)"
+    }
+    hamburgerbtn.addEventListener('click', () => {
+
+      if (counter == 0) {
+        hamburgerbtn.style.transform = "translateX(-0.5rem) translateY(-5.5rem)"
+        brandq.style.transform = "translateX(-10rem)"
+        counter = 1;
+        maindiv.style.margin = "0px 0px 0px 70px";
+      }
+      else {
+        hamburgerbtn.style.transform = "translateX(8.5rem) translateY(-5.5rem)"
+        brandq.style.transform = "translateX(0rem)"
+        counter = 0;
+        maindiv.style.margin = "0px 0px 0px 255px";
+      }
+    })
+
+    let q1 = document.getElementById("q1");
+    let q2 = document.getElementById("q2");
+    let total = document.getElementById('total');
+    let easy = document.getElementById('easy');
+    let hard = document.getElementById('hard');
+    let moderate = document.getElementById('moderate');
+    let errmsg = document.getElementById('errmsg');
+    let submitbtn = document.getElementById('submitbtn');
+
+    total.addEventListener('keypress', function (e) {
+      if (e.keyCode === 13 || e.which === 13) {
+        checkForm();
+        console.log("total")
+        e.preventDefault();
+        return false;
+      }
+    });
+
+
+    easy.addEventListener('keypress', function (e) {
+      if (e.keyCode === 13 || e.which === 13) {
+        checkForm();
+        console.log("easy")
+        e.preventDefault();
+        return false;
+      }
+    });
+
+    moderate.addEventListener('keypress', function (e) {
+      if (e.keyCode === 13 || e.which === 13) {
+        checkForm();
+        console.log("moderate")
+        e.preventDefault();
+        return false;
+      }
+    });
+
+    hard.addEventListener('keypress', function (e) {
+      if (e.keyCode === 13 || e.which === 13) {
+        checkForm();
+        console.log("hard")
+        e.preventDefault();
+        return false;
+      }
+    });
+
+
+    
+    async function fetchsubjects() {
+      const branch = document.getElementById("branch").value;
+       
+      const subjectData = await fetch(`http://127.0.0.1:9000/admin/getsubjectlist${branch}`).then(response => response.json()).then(data => data )
+      const subject = document.getElementById("subject")
+      subject.innerHTML=''
+      for (let i = 0; i < subjectData.length; i++) {
+        subject.innerHTML += `<option value=${subjectData[i].subject_name}>${subjectData[i].subject_name}</option>`
+      }
+    }
+
+    async function fetchquestioncount() {
+      const subject = document.getElementById("subject").value;
+      const questionData = await fetch(`http://127.0.0.1:9000/admin/getquestiondata${subject}`).then(response => response.json()).then(data => data )
+      var easy =0;
+      var medium=0;
+      var hard=0;
+      questionData.forEach(data=>{
+        if(data._id=='easy') {
+          easy=data.count;
+          maxe = data.count;
+          maxt= maxt+data.count;
+        }
+        if(data._id=='hard') {
+          hard=data.count;
+          maxm = data.count;
+          maxt= maxt+data.count;
+        }
+
+        if(data._id=='medium') {
+          medium=data.count;
+          maxh = data.count;
+          maxt= maxt+data.count;
+        }
+       
+      })
+      // console.log(easy)
+      // console.log(medium)
+      // console.log(hard)
+      maxt= easy+medium+hard;
+      totalnumberofquestion.innerHTML=`<span style="color: rgb(104, 104, 104);">Total Questions Available:</span><span id="tm"> ${easy+medium+hard}</span>`
+      noofeasyquestions.innerHTML=`<span style="color: rgb(104, 104, 104);">Total Questions Available:</span><span id="em" >${medium} </span>`
+      noofmediumquestions.innerHTML=`<span style="color: rgb(104, 104, 104);">Total Questions Available:</span><span id="mm" >${easy} </span>`
+      noofhardquestions.innerHTML=`<span style="color: rgb(104, 104, 104);">Total Questions Available:</span><span id="hm" >${hard} </span>`
+
+
+      
+    }
+
+
+    function checkForm() {
+      let wrong = false;
+      maxt = parseInt(document.getElementById("tm").innerHTML);
+      maxe = parseInt(document.getElementById("em").innerHTML);
+      maxm = parseInt(document.getElementById("mm").innerHTML);
+      maxh = parseInt(document.getElementById("hm").innerHTML);
+      console.log(total.value>maxt);
+      let totalexceed = false;
+      if(total.value > maxt){
+        wrong = true;
+        total.style.border = "1px solid red";
+        errmsg.style.visibility = "visible";
+        submitbtn.disabled = true;
+        totalexceed = true;
+        errmsg.innerHTML = "Maximum Number of Questions Exceeded!!";
+      }else{
+        total.style.border = "none";
+        totalexceed=false
+      }
+
+      if(easy.value>maxe){
+        wrong = true;
+        easy.style.border = "1px solid red";
+        errmsg.style.visibility = "visible";
+        submitbtn.disabled = true;
+        errmsg.innerHTML = "Maximum Number of Questions Exceeded!!";
+      }else{
+        easy.style.border = "none";
+      }
+      if(moderate.value>maxm){
+        wrong = true;
+        moderate.style.border = "1px solid red";
+        errmsg.style.visibility = "visible";
+        submitbtn.disabled = true;
+        errmsg.innerHTML = "Maximum Number of Questions Exceeded!!";
+      }else{
+        moderate.style.border = "none";
+      }
+      if(hard.value>maxh){
+        wrong = true;
+        hard.style.border = "1px solid red";
+        errmsg.style.visibility = "visible";
+        submitbtn.disabled = true;
+        errmsg.innerHTML = "Maximum Number of Questions Exceeded!!";
+      }else{
+        hard.style.border = "none";
+      }
+
+      if ((easy.value+moderate.value+hard.value) > total.value) {
+        
+        wrong = true;
+        total.style.border = "1px solid red";
+        errmsg.style.visibility = "visible";
+        submitbtn.disabled = true;
+        errmsg.innerHTML = "Total Number of Questions Exceeded!!";
+      }else{
+        if(!totalexceed){
+          total.style.border = "none";
+        }
+      }
+
+      if ((easy.value+moderate.value+hard.value) < total.value && easy.value>0  && moderate.value>0  && hard.value>0 ) {
+        
+        wrong = true;
+        total.style.border = "1px solid red";
+        errmsg.style.visibility = "visible";
+        submitbtn.disabled = true;
+        errmsg.innerHTML = "Total Number of Questions Not Match!!";
+      }else{
+        if(!totalexceed){
+          total.style.border = "none";
+        }
+      }
+
+      if(wrong == false){
+        errmsg.style.visibility = "hidden";
+        submitbtn.disabled = false;
+      }
+    }
+
+
+  </script>
+
+</body>
+
+</html>

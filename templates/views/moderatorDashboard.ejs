@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>Quesio | Moderator Dashboard</title>
+
+  <link rel="stylesheet" href="/dashboard/vendors/typicons.font/font/typicons.css" />
+  <link rel="stylesheet" href="/dashboard/vendors/css/vendor.bundle.base.css" />
+
+  <link rel="stylesheet" href="/dashboard/css/vertical-layout-light/style.css" />
+
+  <link rel="icon" type="image/x-icon" href="/assets/images/Q.ico">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merienda+One&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css"
+    href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/fonts/simple-line-icons/style.min.css" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <div class="container-scroller">
+
+    <div class="container-fluid page-body-wrapper" style="padding-top:0; min-height: 100vh;">
+
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+          <li class="nav-item" id="brandq">
+            <a class="navbar-brand" href="/" style="display: inline-block;
+            padding-top: 0.3rem;
+            margin-right: 1rem;
+            font-size: 2.5rem;
+            line-height: inherit;
+            white-space: nowrap;
+            font-weight: bold;
+            font-family: Merienda One, cursive;
+            color: white;
+            padding-left: 1rem;">
+              Quesio
+            </a>
+          </li>
+          <li class="nav-item">
+            <div class="d-flex sidebar-profile" style="padding: 1rem 1.125rem;">
+              <div class="sidebar-profile-name">
+                <p class="sidebar-designation">Welcome</p>
+                <p class="sidebar-name">MODERATOR</p>
+              </div>
+              <button class="navbar-toggler navbar-toggler align-self-center d-lg-flex transition-btn" type="button"
+                style="color: aliceblue;margin-top: 0.85rem;" data-toggle="minimize" id="hbtn"
+                style="transform: translateX(8.5rem);">
+                <span class="typcn typcn-th-menu"></span>
+              </button>
+            </div>
+
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/">
+              <i class="typcn typcn-home menu-icon"></i>
+              <span class="menu-title">Home
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/moderator"  style="background:#414147;">
+              <i class="typcn typcn-device-desktop menu-icon"></i>
+              <span class="menu-title">Dashboard
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/moderator/moderatorquestions" onmouseenter="colorwhite(this.children[1])"
+            onmouseleave="removewhite(this.children[1])" >
+              <i class="typcn typcn-code-outline menu-icon text-muted"></i>
+              <span class="menu-title" id="ianchor1">Questions To Validate
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/moderator/moderatorquestionsvalidated" onmouseenter="colorwhite(this.children[1])"
+            onmouseleave="removewhite(this.children[1])">
+              <i class="typcn typcn-code menu-icon text-muted"></i>
+              <span class="menu-title" id="ianchor2">All Validated Questions
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/moderator/profile" onmouseenter="colorwhite(this.children[1])"
+            onmouseleave="removewhite(this.children[1])">
+              <i class="typcn typcn-user-outline menu-icon text-muted"></i>
+              <span class="menu-title" id="ianchor3">Profile
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/logout">
+              <i class="typcn typcn-power menu-icon"></i>
+              <span class="menu-title">Logout
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+
+      <div class="main-panel" id="maindiv">
+        <div class="content-wrapper flex">
+          <div class="row">
+            <div class="col-sm-12">
+              <h2 class="mb-0 font-weight-bold" style="padding-bottom: 1rem;border-bottom: 2px solid #6206a8;">MODERATOR
+                DASHBOARD</h2>
+
+            </div>
+          </div>
+
+          <div class="row margin-card-top">
+            <div class="col-xl-4 col-sm-6 col-12 div-small">
+              <div class="card shadow-lg">
+                <div class="card-content">
+                  <div class="card-body">
+                    <div class="media d-flex">
+                      <div class="align-self-center">
+                        <i class="fa fa-code font-large-2 float-left"></i>
+                      </div>
+                      <div class="media-body text-right">
+                        <h3>
+                          <%=moderatordetail.subject.length %>
+                        </h3>
+                        <span>No. of Subjects</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-4 col-sm-6 col-12">
+              <div class="card shadow-lg">
+                <div class="card-content">
+                  <div class="card-body">
+                    <div class="media d-flex">
+                      <div class="align-self-center">
+                        <i class="fa fa-question font-large-2 float-left"></i>
+                      </div>
+                      <div class="media-body text-right">
+                        <h3>
+                          <%=moderatordetail.question_submited.length %>
+                        </h3>
+                        <span>No. of Questions Submitted</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+
+          </div>
+
+          <div class="card margin-card-top">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-10">
+                  <h4 class="card-title col-lg-4">Questions Uploaded</h4>
+                </div>
+
+                <div class="col-md-2">
+                  <button type="button" class="btn btn-primary-new text-white" style="align-content: center;" data-toggle="modal"
+                    data-target=".bd-example-modal-lg"  >Add
+                    Question</button>
+
+                  <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
+                    aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                      <div class="modal-content p-5">
+                        <div class="modal-header">
+                          <h2 class="modal-title" id="exampleModalLongTitle">Add Question</h2>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <form>
+                            <div class="row">
+                              <div class="form-group col-md-4">
+                                <label for="subject-name">Name Of The Subject : <sup>*</sup></label>
+                              </div>
+                              <div class="form-group col-md-8">
+                                <div class="input-group">
+                                  <select onchange="fetchChapter()" class="custom-select" name="subject"
+                                    id="subject-name" required>
+                                    <option value="">Choose...</option>
+                                    <% subjects.forEach(function(data){%>
+                                      <option value="<%= data %>">
+                                        <%= data %>
+                                      </option>
+                                      <% }) %>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="form-group col-md-4">
+                                <label for="chapter-name">Name Of The Chapter : <sup>*</sup></label>
+                              </div>
+                              <div class="form-group col-md-8">
+                                <div class="input-group">
+                                  <select class="custom-select" id="chapter-name" name="chapter" required>
+                                    <option value="">Choose...</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row d-flex justify-content-center">
+                              <div class="form-group col-md-4">
+                                <label for="difficulty">Difficulty Level : <sup>*</sup></label>
+                              </div>
+                              <div class="btn-group-sm btn-group-toggle col-md-8" data-toggle="buttons" id="difficulty">
+                                <label class="btn btn-secondary active" style="background-color: #32B01D; border-color: #32B01D; color: white;">
+                                  <input type="radio" name="diff" value="easy" id="diff-option1" required> Easy
+                                </label>
+                                <label class="btn btn-secondary" style="background-color: #F1BC00; border-color: #F1BC00; color: white;">
+                                  <input type="radio" name="diff" value="medium" id="diff-option2" required> Medium
+                                </label>
+                                <label class="btn btn-secondary" style="background-color: #EE2B10; border-color: #EE2B10; color: white;">
+                                  <input type="radio" name="diff" value="hard" id="diff-option3" required> Hard
+                                </label>
+                              </div>
+                            </div>
+
+                            <div class="row">
+                              <div class="form-group col-md-2">
+                                <label for="question">Enter Question : <sup>*</sup></label>
+                              </div>
+                              <div class="col-md-10">
+                                <input type="text" class="form-control" id="question" name="question"
+                                  placeholder="Question" required>
+                              </div>
+                            </div>
+
+                            <div class="row">
+                              <div class="form-group col-md-2">
+                                <label for="question">Option 1 : <sup>*</sup></label>
+                              </div>
+                              <div class="col-md-7">
+                                <input type="text" class="form-control" id="option1" name="option1"
+                                  placeholder="Option 1" required>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="correct" id="correct1">
+                                <label class="form-check-label" for="correct1">
+                                  Correct Answer
+                                </label>
+                              </div>
+                            </div>
+
+                            <div class="row">
+                              <div class="form-group col-md-2">
+                                <label for="question">Option 2 : <sup>*</sup></label>
+                              </div>
+                              <div class="col-md-7">
+                                <input type="text" class="form-control" id="option2" name="option2"
+                                  placeholder="Option 2" required>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="correct" id="correct2">
+                                <label class="form-check-label" for="correct2">
+                                  Correct Answer
+                                </label>
+                              </div>
+                            </div>
+
+                            <div class="row">
+                              <div class="form-group col-md-2">
+                                <label for="question">Option 3 : <sup>*</sup></label>
+                              </div>
+                              <div class="col-md-7">
+                                <input type="text" class="form-control" id="option3" name="option3"
+                                  placeholder="Option 3" required>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="correct" id="correct3">
+                                <label class="form-check-label" for="correct3">
+                                  Correct Answer
+                                </label>
+                              </div>
+                            </div>
+
+                            <div class="row">
+                              <div class="form-group col-md-2">
+                                <label for="question">Option 4 : <sup>*</sup></label>
+                              </div>
+                              <div class="col-md-7">
+                                <input type="text" class="form-control" id="option4" name="option4"
+                                  placeholder="Option 4" required>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="correct" id="correct4">
+                                <label class="form-check-label" for="correct4">
+                                  Correct Answer
+                                </label>
+                              </div>
+                            </div>
+
+                            <div class="text-center">
+                              <p class="form-footer-text">* Your Submissions Will Be Supervised By The Experts.</p>
+                            </div>
+                          </form>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <button type="submit" class="btn btn-primary" onclick="fetchquestion()"
+                            data-dismiss="modal">Save Changes</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="table-responsive">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th style="font-weight: bold;">
+                        Sr No.
+                      </th>
+                      <th style="font-weight: bold;">
+                        Question
+                      </th>
+                      <th style="font-weight: bold;">
+                        Branch
+                      </th>
+                      <th style="font-weight: bold;">
+                        Subject
+                      </th>
+
+                      <th style="font-weight: bold;">
+                        Edit
+                      </th>
+
+                      <th style="font-weight: bold;">
+                        Status
+                      </th>
+                      <th style="font-weight: bold;">
+                        Delete
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <%moderatordetail.question_submited.forEach((question,index)=>{ %>
+                      <tr>
+                        <td>
+                          <h5>
+                            <%=index+1 %>
+                          </h5>
+                        </td>
+                        <td>
+                          <select class="form-control form-control-lg" id="exampleFormControlSelect1"
+                            style="width: 100%;">
+                            <option>
+                              <h5>
+                                <%=question.question %>
+                              </h5>
+                            </option>
+                            <% question.options.forEach((option,index)=>{ %>
+                              <option>
+                                <h5>
+                                  <%=index+1 %>) <%=option %>
+                                </h5>
+                              </option>
+                              <% }) %>
+                          </select>
+                        </td>
+                        <td>
+                          <h5>
+                            <%=question.branch %>
+                          </h5>
+                        </td>
+
+                        <td>
+                          <h5>
+                            <%=question.subject %>
+                          </h5>
+                        </td>
+                        </td>
+                        <td>
+
+                          <button type="submit" class="btn  btn-sm btn-primary-new " data-toggle="modal"
+                            data-target=".bd-example-modal-edit" onclick="editData('<%=question.id %>')">Edit</button>
+                          <div class="modal fade bd-example-modal-edit" tabindex="-1" role="dialog"
+                            aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                              <div class="modal-content p-5">
+                                <div class="modal-header">
+                                  <h2 class="modal-title" id="exampleModalLongTitle">Edit Question</h2>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                  <form action="questions.html" method="POST">
+                                    <div class="row" style="text-align:left;">
+                                      <div class="form-group col-md-4 pl-5">
+                                        <label for="subject-name">Name Of The Subject : <sup>*</sup></label>
+                                      </div>
+                                      <div class="form-group col-md-8">
+                                        <div class="input-group">
+                                          <select class="custom-select" id="edit-subject-name" required disabled>
+                                          </select>
+                                        </div>
+                                      </div>
+                                      <div class="form-group col-md-4 pl-5">
+                                        <label for="chapter-name">Name Of The Chapter : <sup>*</sup></label>
+                                      </div>
+                                      <div class="form-group col-md-8">
+                                        <div class="input-group">
+                                          <select class="custom-select" id="edit-chapter-name" required disabled>
+                                          </select>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="row d-flex" style="text-align:left;">
+                                      <div class="form-group col-md-4 pl-5">
+                                        <label for="difficulty">Difficulty Level : <sup>*</sup></label>
+                                      </div>
+                                      <div class="btn-group-sm btn-group-toggle col-md-8" data-toggle="buttons"
+                                        id="difficulty">
+                                        <label class="btn " 
+                                        style="background-color: #32B01D; border-color: #32B01D; color: white;">
+                                          <input type="radio" name="edit-diff-options" id="diff_1" value="easy" required>
+                                          Easy
+                                        </label>
+                                        <label class="btn " style="background-color: #F1BC00; border-color: #F1BC00; color: white;">
+                                          <input type="radio" name="edit-diff-options" id="diff_2" value="medium" required>
+                                          Medium
+                                        </label>
+                                        <label class="btn " style="background-color: #EE2B10; border-color: #EE2B10; color: white;">
+                                          <input type="radio" name="edit-diff-options" id="diff_3" value="hard" required>
+                                          Hard
+                                        </label>
+                                      </div>
+                                    </div>
+
+                                    <div class="row">
+                                      <div class="form-group col-md-2">
+                                        <label for="question">Enter Question : <sup>*</sup></label>
+                                      </div>
+                                      <div class="col-md-10">
+                                        <input type="text" class="form-control" id="edit-question" name="question"
+                                          placeholder="Question" required>
+                                      </div>
+                                    </div>
+
+                                    <div class="row" style="text-align:left;">
+                                      <div class="form-group col-md-2 pl-5 ">
+                                        <label for="option_1">Option 1 : <sup>*</sup></label>
+                                      </div>
+                                      <div class="col-md-7">
+                                        <input type="text" class="form-control" id="option_1" name="option1"
+                                          placeholder="Option 1" required>
+                                      </div>
+                                      <div class="form-check ">
+                                        <input class="form-check-input" style="margin-left:-4rem;" type="radio"
+                                          name="edit-correct" id="correct_1">
+                                        <label class="form-check-label" for="correct_1">
+                                          Correct Answer
+                                        </label>
+                                      </div>
+                                    </div>
+
+                                    <div class="row" style="text-align:left;">
+                                      <div class="form-group col-md-2 pl-5">
+                                        <label for="option_2">Option 2 : <sup>*</sup></label>
+                                      </div>
+                                      <div class="col-md-7">
+                                        <input type="text" class="form-control" id="option_2" name="option2"
+                                          placeholder="Option 2" required>
+                                      </div>
+                                      <div class="form-check ">
+                                        <input class="form-check-input" style="margin-left:-4rem;" type="radio"
+                                          name="edit-correct" id="correct_2">
+                                        <label class="form-check-label" for="correct_2">
+                                          Correct Answer
+                                        </label>
+                                      </div>
+                                    </div>
+
+                                    <div class="row" style="text-align:left;">
+                                      <div class="form-group col-md-2 pl-5">
+                                        <label for="option_3">Option 3 : <sup>*</sup></label>
+                                      </div>
+                                      <div class="col-md-7">
+                                        <input type="text" class="form-control" id="option_3" name="option3"
+                                          placeholder="Option 3" required>
+                                      </div>
+                                      <div class="form-check ">
+                                        <input class="form-check-input" style="margin-left:-4rem;" type="radio"
+                                          name="edit-correct" id="correct_3">
+                                        <label class="form-check-label" for="correct_3">
+                                          Correct Answer
+                                        </label>
+                                      </div>
+                                    </div>
+
+                                    <div class="row" style="text-align:left;">
+                                      <div class="form-group col-md-2 pl-5">
+                                        <label for="option_4">Option 4 : <sup>*</sup></label>
+                                      </div>
+                                      <div class="col-md-7">
+                                        <input type="text" class="form-control col-md-12" id="option_4" name="option4"
+                                          placeholder="Option 4" required>
+                                      </div>
+                                      <div class="form-check col-md-2" >
+                                        <input class="form-check-input" style="margin-left:-4rem;" type="radio"
+                                          name="edit-correct" id="correct_4">
+                                        <label class="form-check-label" style="text-align:left;" for="correct_4">
+                                          Correct Answer
+                                        </label>
+                                      </div>
+                                    </div>
+
+                                    <div class="text-center">
+                                      <p class="form-footer-text">* Your Submissions Will Be Supervised By The Experts.
+                                      </p>
+                                    </div>
+                                  </form>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                  <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                    onclick="afterEdit('<%=question.id %>')">Save
+                                    Changes</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                        </td>
+                        <% if(question.isValid){ %>
+                          <td>
+                            <label class="badge badge-success"><a style="color:inherit; text-decoration: none;"
+                                href="http://127.0.0.1:9000/questions/disapprove<%=question.id %> ">Approved</a></label>
+                          </td>
+                          <% }else{ %>
+                            <td>
+                              <label class="badge badge-danger"><a style="color:inherit; text-decoration: none;"
+                                  href="http://127.0.0.1:9000/questions/approve<%=question.id %> ">Pending</a></label>
+                            </td>
+                            <% } %>
+
+
+                              <td>
+
+                                <button type="submit" class="btn  btn-sm btn-danger-new"><a style="color:inherit; text-decoration: none;"
+                                    href="http://127.0.0.1:9000/questions/delete<%=question.id %> ">Delete</a> </button>
+                              </td>
+                      </tr>
+                      <% }) %>
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="./dashboard/vendors/js/vendor.bundle.base.js"></script>
+
+  <script src="./dashboard/js/off-canvas.js"></script>
+  <script src="./dashboard/js/hoverable-collapse.js"></script>
+  <script src="./dashboard/js/template.js"></script>
+  <script src="./dashboard/js/settings.js"></script>
+  <script src="./dashboard/js/todolist.js"></script>
+
+  <script src="./dashboard/vendors/progressbar.js/progressbar.min.js"></script>
+  <script src="./dashboard/vendors/chart.js/Chart.min.js"></script>
+
+  <script src="./dashboard/js/dashboard.js"></script>
+
+  <script>
+    let counter = 0;
+    let hamburgerbtn = document.getElementById("hbtn")
+    let brandq = document.getElementById("brandq")
+    let ianchor1 = document.getElementById("ianchor1")
+    let ianchor2 = document.getElementById("ianchor2")
+    let ianchor3 = document.getElementById("ianchor3")
+    let maindiv=document.getElementById('maindiv');
+    maindiv.style.margin = "0px 0px 0px 255px";
+
+
+    window.onload = () => {
+      hamburgerbtn.style.transform = "translateX(5.5rem) translateY(-5.4rem)";
+      ianchor1.style.color = "#7e7e7e"
+      ianchor2.style.color = "#7e7e7e"
+      ianchor3.style.color = "#7e7e7e"
+    }
+    hamburgerbtn.addEventListener('click', () => {
+
+      if (counter == 0) {
+        hamburgerbtn.style.transform = "translateX(-0.5rem) translateY(-5.4rem)"
+        brandq.style.transform = "translateX(-10rem)"
+        counter = 1;
+        maindiv.style.margin = "0px 0px 0px 70px";
+
+      }
+      else {
+        hamburgerbtn.style.transform = "translateX(5.5rem) translateY(-5.4rem)"
+        brandq.style.transform = "translateX(0rem)"
+        counter = 0;
+        maindiv.style.margin = "0px 0px 0px 255px";
+
+      }
+    })
+
+    function colorwhite(obj){
+      obj.style.color = "white";
+    }
+
+    function removewhite(obj){
+      obj.style.color = "#7e7e7e";
+    }
+    
+    async function fetchChapter() {
+      const value = document.getElementById("subject-name").value;
+      console.log(value)
+      const chapterData = await fetch(`http://localhost:9000/questions/chapter${value}`).then(response => response.json()).then(data => data[0].chapter)
+      const chapter = document.getElementById("chapter-name")
+      for (let i = 0; i < chapterData.length; i++) {
+        chapter.innerHTML += `<option value=${chapterData[i]}>${chapterData[i]}</option>`
+      }
+    }
+    async function fetchquestion() {
+      for (let i = 1; i <= 4; i++) {
+        if (document.getElementById(`correct${i}`).checked == true) {
+          document.getElementById(`correct${i}`).value = document.getElementById(`option${i}`).value
+          break;
+        }
+      }
+      const subject = document.getElementById('subject-name').value
+      const chapter = document.getElementById('chapter-name').value
+      const diff = document.querySelector('input[name="diff"]:checked').value;
+      const question = document.getElementById('question').value
+      const option1 = document.getElementById('option1').value
+      const option2 = document.getElementById('option2').value
+      const option3 = document.getElementById('option3').value
+      const option4 = document.getElementById('option4').value
+      const correct = document.querySelector('input[name="correct"]:checked').value;
+
+      await fetch("http://127.0.0.1:9000/questions",
+
+        {
+
+          method: 'POST',
+
+          headers: {
+
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+
+          body: JSON.stringify({
+            "subject": `${subject}`,
+            "chapter": `${chapter}`,
+            "diff": `${diff}`,
+            "question": `${question}`,
+            "option1": `${option1}`,
+            "option2": `${option2}`,
+            "option3": `${option3}`,
+            "option4": `${option4}`,
+            "correct": `${correct}`,
+          })
+
+        })
+        window.location.reload(true)
+    }
+
+    async function editData(question_id) {
+      const question = await fetch(`http://127.0.0.1:9000/questions/show${question_id}`).then(response => response.json()).then(data => data.question)
+      // console.log(question)
+      document.getElementById('edit-subject-name').innerHTML += `<option value="${question.subject}">${question.subject}</option>`
+      document.getElementById('edit-chapter-name').innerHTML += `<option value="${question.chapter}">${question.chapter}</option>`
+      for (let i = 1; i <= 3; i++) {
+        if (document.getElementById(`diff_${i}`).value === question.difficulty) {
+          console.log(i);
+          document.getElementById(`diff_${i}`).parentElement.classList.add('active')
+          document.getElementById(`diff_${i}`).checked=true;
+          break;
+        }
+      }
+      document.getElementById('edit-question').value = question.question
+      document.getElementById('option_1').value = question.options[0];
+      document.getElementById('option_2').value = question.options[1];
+      document.getElementById('option_3').value = question.options[2];
+      document.getElementById('option_4').value = question.options[3];
+
+      for (let i = 1; i <= 4; i++) {
+        if (document.getElementById(`option_${i}`).value === question.correct_options[0]) {
+          document.getElementById(`correct_${i}`).checked = true
+          break;
+        }
+      }
+    }
+    async function afterEdit(question_id) {
+      const subject = document.getElementById('edit-subject-name').value
+      const chapter = document.getElementById('edit-chapter-name').value
+      const diff = document.querySelector('input[name="edit-diff-options"]:checked').value;
+      // console.log(diff)
+      const question = document.getElementById('edit-question').value
+      const option1 = document.getElementById('option_1').value
+      const option2 = document.getElementById('option_2').value
+      const option3 = document.getElementById('option_3').value
+      const option4 = document.getElementById('option_4').value
+      let correct_ans;
+      for (let i = 1; i <= 4; i++) {
+        if (document.getElementById(`correct_${i}`).checked == true) {
+          correct_ans = document.getElementById(`option_${i}`).value
+          break;
+        }
+      }
+
+      // console.log(diff, question, option1, option2, option3, option4,correct_ans )
+      await fetch(`http://127.0.0.1:9000/questions/update${question_id}`,
+
+        {
+
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ "subject": `${subject}`, "chapter": `${chapter}`, "diff": `${diff}`, "question": `${question}`, "option1": `${option1}`, "option2": `${option2}`, "option3": `${option3}`, "option4": `${option4}`, "correct": `${correct_ans}` })
+        })
+
+        window.location.reload(true);
+    }
+
+  </script>
+
+</body>
+
+</html>

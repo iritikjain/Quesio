@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Quesio | Sign Up</title>
+  <link rel="stylesheet" href="assets/vendors/fontawesome-free/css/all.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="icon" type="image/x-icon" href="assets/images/Q.ico" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body style="
+      overflow-x: hidden;
+      background-image: linear-gradient(45deg, #c395e5, #6206a8);
+    ">
+
+  <!-- <div class="row">
+    <div class="" style="position:fixed;z-index:1;height:100vh;width:100vw; background:black;opacity: 0.7;">
+
+    </div>
+    <div class="col-md-7 offset-3 p-3 pb-2 mt-5 justify-content-center"
+      style="background-color:white;z-index:10;position:fixed;top:30vh;">
+      <div class="row justify-content-center">
+          <span class="material-icons pt-2 pr-1" style="color:green;font-size:3rem;">
+            verified
+          </span>
+      </div>
+      <div class="row justify-content-center">
+          <label for="registersuccessful" class="pb-2 pt-1 mt-2">Your registration is successfully.You will receive an
+            email once your registration has been verified!
+          </label>
+      </div>
+      <div class="row justify-content-center">
+          <button class="btn btn-primary btn-auth-submit col-md-3 text-center p-3" type="button">
+            <a href="/" style="color:white;text-decoration: none;"> Back To Home</a>
+          </button>
+      </div>
+    </div>
+
+
+  </div> -->
+  <div class="row">
+    <div class="col-lg-9 mx-auto border border-light rounded-lg pt-4 mx-5 my-5 shadow-lg bg-white">
+      <div class="card-body">
+        <div class="row w-300">
+          <div class="col-md-2 mb-4">
+            <button type="button" class="btn btn-primary btn-rounded btn-icon" style="padding: 12%">
+              <a href="/">
+                <img src="assets\images\home.png" style="height: 24px" alt="App store" /></a>
+            </button>
+          </div>
+          <div class="col-md-10" style="padding-left: 265px">
+            <h1 class="auth-section-title mt-3" style="font-size: xx-large">
+              Register Here !
+            </h1>
+          </div>
+        </div>
+        <p class="auth-section-subtitle text-center">
+          Create Your Account To Contribute.
+        </p>
+        <form action="/register" method="POST" enctype="multipart/form-data">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-md-3 col-form-label" for="name">Full Name : <sup>*</sup></label>
+                <div class="col-md-9">
+                  <input type="text" class="form-control" id="name" name="name" placeholder="Name Surname" required />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-md-3 col-form-label" for="email">Email ID : <sup>*</sup></label>
+                <div class="col-md-9">
+                  <input type="email" class="form-control" id="email" name="email" placeholder="support@quesio.com"
+                    required />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-md-3 col-form-label" for="phoneno">Phone No. : <sup>*</sup></label>
+                <div class="col-md-9">
+                  <input type="number" class="form-control" id="phoneno" name="phoneno" placeholder="912345XXXX"
+                    required maxlength="10" minlength="10" />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-md-3 col-form-label" for="university">University : <sup>*</sup></label>
+                <div class="col-md-9">
+                  <select class="custom-select text-muted" id="university" name="university"
+                    style="height: 3.5rem; padding-left: 30px" required>
+                    <option value="">Choose University</option>
+                    <option value="Mumbai University">
+                      Mumbai University
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-md-3 col-form-label" for="college">College : <sup>*</sup></label>
+                <div class="col-md-9">
+                  <select class="custom-select text-muted" onchange="getbranch()" id="college" name="college"
+                    style="height: 3.5rem; padding-left: 30px" required>
+                    <option value="">Choose College</option>
+                    <% colleges.forEach(college=>{ %>
+                      <option value="<%=college %> ">
+                        <%=college %>
+                      </option>
+                      <% }) %>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row mb-0">
+                <label class="col-md-3 col-form-label" for="branch">Branch : <sup>*</sup></label>
+                <div class="col-md-9">
+                  <select class="custom-select text-muted" id="branch" name="branch"
+                    style="height: 3.5rem; padding-left: 30px" required>
+                    <option value="">Choose Branch</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group row" style="margin-bottom: 1rem">
+                <label class="col-md-3 col-form-label" for="password">Password : <sup>*</sup></label>
+                <div class="col-md-9">
+                  <input type="password" class="form-control" id="password" name="password" placeholder="Password"
+                    required minlength="8" />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row" style="margin-bottom: 1rem">
+                <label class="col-md-3 col-form-label" for="ugc">Upload UGC : <sup>*</sup></label>
+                <div class="col-md-9">
+                  <input type="file" class="form-control" id="ugc" name="ugc" placeholder="UGC" required />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 d-flex mb-md-4 pb-5 pl-0">
+              <label class="form-check-label col-md-3 ml-0">Designation : *</label>
+              <div class="form-check col-md-3">
+                <input class="form-check-input col-md-2 pt-3 mt-2" value="faculty" type="radio" name="designation"
+                  id="radio-faculty" required />
+                <label class="form-check-label col-md-8" for="radio-faculty">
+                  Faculty
+                </label>
+              </div>
+              <div class="form-check col-md-3">
+                <input class="form-check-input col-md-2 pt-3 mt-2" value="moderator" type="radio" name="designation"
+                  id="radio-moderator" />
+                <label class="form-check-label col-md-8" for="radio-moderator">
+                  Moderator
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3 form-group mt-0">
+              <label for="nosubject">Subjects & Experience : <sup>*</sup></label>
+            </div>
+            <div class="col-md-7">
+              <input type="number" min="1" max="5" class="form-control" id="nosubject" name="nosubject"
+                placeholder="Enter The Number Of Subjects" required />
+            </div>
+            <div class="col-md-2">
+              <button type="button" class="btn btn-outline-dark mt-1 mx-5" value="set" onclick="generate()">
+                Enter
+              </button>
+            </div>
+            <div class="col-md-12" id="sbj">
+              <div id="k"></div>
+            </div>
+          </div>
+          <div class="row">
+            <label for="invalidsubject" id="subjecterror" class="text-center col-md-12"
+              style="color:red;visibility:hidden;">* Invalid Input,The number of Should be between 1-5 Only!</label>
+          </div>
+          <div>
+            <div class="text-center mt-4">
+              <button class="btn btn-primary btn-auth-submit" id="submitbtn" type="submit">
+                Sign Up
+              </button>
+            </div>
+          </div>
+        </form>
+        <div class="text-center">
+          <p class="mb-0">
+            Already Have An Account ?
+            <a href="/login" class="text-dark font-weight-bold">Log In</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/vendors/jquery/jquery.min.js"></script>
+  <script src="assets/vendors/popper.js/popper.min.js"></script>
+  <script src="assets/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+
+  <script>
+    let k = document.getElementById("k");
+    let submitbtn = document.getElementById("submitbtn");
+    let nosubject = document.getElementById("nosubject");
+    let subjecterror = document.getElementById("subjecterror");
+    nosubject.addEventListener('keypress', function (e) {
+      if (e.keyCode === 13 || e.which === 13) {
+        var a = parseInt(document.getElementById("nosubject").value);
+        if (a >= 1 && a <= 5) {
+          generate();
+          nosubject.style.border = "none";
+          subjecterror.style.visibility = "hidden";
+          submitbtn.disabled = false;
+        } else {
+          nosubject.style.border = "1px solid red";
+          subjecterror.style.visibility = "visible";
+          submitbtn.disabled = true;
+          k.innerHTML = "";
+        }
+        e.preventDefault();
+        return false;
+      }
+
+    });
+
+    function generate() {
+      var a = parseInt(document.getElementById("nosubject").value);
+      let div = ``;
+      if (a >= 1 && a <= 5) {
+        nosubject.style.border = "none";
+        subjecterror.style.visibility = "hidden";
+        submitbtn.disabled = false;
+        var ch = document.getElementById("ch");
+        for (i = 0; i < a; i++) {
+          div =
+            div +
+            `<div class="col-md-12 d-flex">
+                                  <div class="col-md-6 m-1">
+                                      <select class="custom-select col-md-12 text-muted" id="subject${i + 1
+            }" name="subject${i + 1}" required>
+                                          <option value="">Choose Subjects</option>
+                                          
+                                      </select>
+                                  </div>
+                                  <div class="col-md-6 m-1">
+                                      <input type="text" class="form-control col-md-12 text-muted" style="height:2.5rem;" id="yoe${i + 1
+            }" name="yoe${i + 1}"
+                                      placeholder="Enter The Years Of Experience" required>
+                                  </div> 
+                          </div>`;
+        }
+
+        k.innerHTML = div;
+        getsubject();
+      } else {
+        nosubject.style.border = "1px solid red";
+        subjecterror.style.visibility = "visible";
+        submitbtn.disabled = true;
+        k.innerHTML = "";
+      }
+    }
+
+    async function getbranch() {
+      const collegename = document.getElementById("college").value;
+      const branchData = await fetch(
+        `http://127.0.0.1:9000/register/branchdata${collegename}`
+      )
+        .then((response) => response.json())
+        .then((data) => data);
+
+      const branch = document.getElementById("branch");
+      branch.innerHTML = "";
+      for (let i = 0; i < branchData.length; i++) {
+        branch.innerHTML += `<option value=${branchData[i]}>${branchData[i]}</option>`;
+      }
+    }
+
+    async function getsubject() {
+      var a = parseInt(document.getElementById("nosubject").value);
+      const branchname = document.getElementById("branch").value;
+      const subjectdata = await fetch(
+        `http://localhost:9000/register/subjectdata${branchname}`
+      )
+        .then((response) => response.json())
+        .then((data) => data);
+
+      for (let i = 0; i < a; i++) {
+        for (let j = 0; j < subjectdata.length; j++) {
+          document.getElementById(
+            `subject${i + 1}`
+          ).innerHTML += `<option value=${subjectdata[j].subject_name}>${subjectdata[j].subject_name}</option>`;
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>

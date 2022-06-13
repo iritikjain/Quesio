@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Quesio | Update Submissions</title>
+  <link rel="stylesheet" href="/assets/vendors/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="icon" type="image/x-icon" href="assets/images/Q.ico">
+</head>
+
+<body style="background-color: #6206a8;">
+  <main>
+    <div class="container">
+      <section class="contact-form-wrapper">
+        <h2 class="text-center my-5 text-white">Submit Your Multiple Choice Questions</h2>
+        <h6 class="text-center my-5 text-white">Note : Type The Question, Add 4 Options For The Same And Select The
+          Correct Answer Using
+          The Radio Button Provided.</h6>
+        <div class="border border-dark rounded-lg p-4 shadow-lg bg-white">
+          <form action="/questions/update<%= qid %>" method="POST">
+            <div class="row">
+              <div class="form-group col-md-3">
+                <label for="subject-name">Name Of The Subject : <sup>*</sup></label>
+              </div>
+              <div class="form-group col-md-3">
+                <div class="input-group mb-3">
+                  <select class="custom-select" name="subject" id="subject-name" required>
+                    <option selected disabled value="<%= questionData.subject %>">
+                      <%= questionData.subject %>
+                    </option>
+
+                  </select>
+                </div>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="chapter-name">Name Of The Chapter : <sup>*</sup></label>
+              </div>
+              <div class="form-group col-md-3">
+                <div class="input-group mb-3">
+                  <select class="custom-select" id="chapter-name" name="chapter" required>
+                    <option selected disabled value="<%= questionData.chapter %>">
+                      <%= questionData.chapter %>
+                    </option>
+
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row d-flex justify-content-center">
+              <div class="form-group col-md-3">
+                <label for="difficulty">Difficulty Level : <sup>*</sup></label>
+              </div>
+              <div class="btn-group-sm btn-group-toggle col-md-3 mb-3" data-toggle="buttons" id="difficulty">
+                <label class="btn btn-secondary active">
+                  <input type="radio" id="1" name="diff" value="easy" id="diff-option1" required> Easy
+                </label>
+                <label class="btn btn-secondary">
+                  <input type="radio" id="2" name="diff" value="medium" id="diff-option2" required> Medium
+                </label>
+                <label class="btn btn-secondary">
+                  <input type="radio" id="3" name="diff" value="hard" id="diff-option3" required> Hard
+                </label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group col-md-2 py-2">
+                <label for="question">Enter Question : <sup>*</sup></label>
+              </div>
+              <div class="col-md-10 mb-3">
+                <input type="text" class="form-control" id="question" name="question" placeholder="Question" required>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group col-md-2 py-2">
+                <label for="option1">Option 1 : <sup>*</sup></label>
+              </div>
+              <div class="col-md-8">
+                <input type="text" class="form-control" id="option1" name="option1" placeholder="Option 1" required>
+              </div>
+              <div class="form-check m-3">
+                <input class="form-check-input" type="radio" name="correct" id="correct1">
+                <label class="form-check-label" for="correct1">
+                  Correct Answer
+                </label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group col-md-2 py-2">
+                <label for="option2">Option 2 : <sup>*</sup></label>
+              </div>
+              <div class="col-md-8">
+                <input type="text" class="form-control" id="option2" name="option2" placeholder="Option 2" required>
+              </div>
+              <div class="form-check m-3">
+                <input class="form-check-input" type="radio" name="correct" id="correct2">
+                <label class="form-check-label" for="correct2">
+                  Correct Answer
+                </label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group col-md-2 py-2">
+                <label for="option3">Option 3 : <sup>*</sup></label>
+              </div>
+              <div class="col-md-8">
+                <input type="text" class="form-control" id="option3" name="option3" placeholder="Option 3" required>
+              </div>
+              <div class="form-check m-3">
+                <input class="form-check-input" type="radio" name="correct" id="correct3">
+                <label class="form-check-label" for="correct3">
+                  Correct Answer
+                </label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group col-md-2 py-2">
+                <label for="option4">Option 4 : <sup>*</sup></label>
+              </div>
+              <div class="col-md-8">
+                <input type="text" class="form-control" id="option4" name="option4" placeholder="Option 4" required>
+              </div>
+              <div class="form-check m-3">
+                <input class="form-check-input" type="radio" name="correct" id="correct4">
+                <label class="form-check-label" for="correct4">
+                  Correct Answer
+                </label>
+              </div>
+            </div>
+
+            <div class="text-center">
+              <button type="submit" id="submit" class="btn btn-primary mb-4">Submit</button>
+              <p class="form-footer-text">* Your Submissions Will Be Supervised By The Experts.</p>
+            </div>
+          </form>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="/assets/vendors/jquery/jquery.min.js"></script>
+  <script src="/assets/vendors/popper.js/popper.min.js"></script>
+  <script src="/assets/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script>
+    const submit = document.getElementById("submit")
+    submit.addEventListener('click', () => {
+      for (let i = 1; i <= 4; i++) {
+        if (document.getElementById(`correct${i}`).checked == true) {
+          document.getElementById(`correct${i}`).value = document.getElementById(`option${i}`).value
+          break;
+        }
+      }
+    })
+
+
+    const subject = document.getElementById('subject-name');
+    subject.value = '<%= questionData.subject %>'
+
+    const chapter = document.getElementById('chapter-name');
+    chapter.value = '<%= questionData.chapter %>'
+
+    const question = document.getElementById('question');
+    question.value = '<%= questionData.question %>'
+
+    for (let i = 1; i <= 3; i++) {
+      if (document.getElementById(`${i}`).value === '<%= questionData.difficulty %>') {
+        document.getElementById(`${i}`).checked = true
+      }
+    }
+    document.getElementById('option1').value = '<%= questionData.options[0] %>'
+    document.getElementById('option2').value = '<%= questionData.options[1] %>'
+    document.getElementById('option3').value = '<%= questionData.options[2] %>'
+    document.getElementById('option4').value = '<%= questionData.options[3] %>'
+
+    for (let i = 1; i <= 4; i++) {
+      if (document.getElementById(`option${i}`).value === '<%= questionData.correct_options[0] %>') {
+        document.getElementById(`correct${i}`).checked = true
+      }
+    }
+
+  </script>
+</body>
+
+</html>
